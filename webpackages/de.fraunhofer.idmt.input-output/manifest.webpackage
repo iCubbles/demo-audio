@@ -46,16 +46,18 @@
               "input-microphone.html"
             ],
             "dependencies": [
-              "cubx.core.rte@1.1.0-SNAPSHOT/cubxpolymer/main"
+              "cubx.core.rte@1.1.1/cubxpolymer/main"
             ]
           }
         ],
         "slots": [
-            {
-                "slotId": "samples",
-                "type": "Float32Array",
-                "direction": ["output"]
-            }
+          {
+            "slotId": "samples",
+            "type": "Float32Array",
+            "direction": [
+              "output"
+            ]
+          }
         ]
       },
       {
@@ -69,31 +71,39 @@
               "input-file.html"
             ],
             "dependencies": [
-              "cubx.core.rte@1.1.0-SNAPSHOT/cubxpolymer/main"
+              "cubx.core.rte@1.1.1/cubxpolymer/main"
             ]
           }
         ],
         "slots": [
-            {
-                "slotId": "samples",
-                "type": "Float32Array",
-                "direction": ["output"]
-            },
-            {
-                "slotId": "source",
-                "type": "string",
-                "direction": ["input"]
-            },
-            {
-                "slotId": "state",
-                "type": "string",
-                "direction": ["input"]
-            },
-            {
-                "slotId": "allStates",
-                "type": "array",
-                "direction": ["output"]
-            }
+          {
+            "slotId": "samples",
+            "type": "Float32Array",
+            "direction": [
+              "output"
+            ]
+          },
+          {
+            "slotId": "source",
+            "type": "string",
+            "direction": [
+              "input"
+            ]
+          },
+          {
+            "slotId": "state",
+            "type": "string",
+            "direction": [
+              "input"
+            ]
+          },
+          {
+            "slotId": "allStates",
+            "type": "array",
+            "direction": [
+              "output"
+            ]
+          }
         ]
       },
       {
@@ -107,25 +117,71 @@
               "output-speakers.html"
             ],
             "dependencies": [
-              "cubx.core.rte@1.1.0-SNAPSHOT/cubxpolymer/main"
+              "cubx.core.rte@1.1.1/cubxpolymer/main"
             ]
           }
         ],
         "slots": [
-            {
-                "slotId": "samples",
-                "type": "Float32Array",
-                "direction": ["input"]
-            },
-            {
-                "slotId": "volume",
-                "type": "int",
-                "direction": ["input"]
-            }
+          {
+            "slotId": "samples",
+            "type": "Float32Array",
+            "direction": [
+              "input"
+            ]
+          },
+          {
+            "slotId": "volume",
+            "type": "int",
+            "direction": [
+              "input"
+            ]
+          }
         ]
       }
     ],
-    "compoundComponents": [],
+    "compoundComponents": [
+      {
+        "artifactId": "microphone-to-speakers",
+        "description": "forwards microphone input to speakers",
+        "endpoints": [
+          {
+            "endpointId": "main",
+            "resources": [],
+            "dependencies": [
+                "this/input-microphone/main",
+                "this/output-speakers/main"
+            ]
+          }
+        ],
+        "slots": [
+        ],
+        "members": [
+          {
+            "memberId": "input",
+            "componentId": "de.fraunhofer.idmt.input-output@0.1.0-SNAPSHOT/input-microphone"
+          },
+          {
+            "memberId": "output",
+            "componentId": "de.fraunhofer.idmt.input-output@0.1.0-SNAPSHOT/output-speakers"
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "sampleConnect",
+            "source": {
+              "memberIdRef": "input",
+              "slot": "samples"
+            },
+            "destination": {
+              "memberIdRef": "output",
+              "slot": "samples"
+            }
+          }
+        ],
+        "inits": [
+        ]
+      }
+    ],
     "utilities": []
   }
 }
