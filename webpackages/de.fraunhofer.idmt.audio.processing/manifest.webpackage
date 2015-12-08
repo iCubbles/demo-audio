@@ -1,0 +1,167 @@
+{
+  "name": "processing",
+  "groupId": "de.fraunhofer.idmt.audio",
+  "version": "0.1.0-SNAPSHOT",
+  "modelVersion": "8.1.0",
+  "docType": "webpackage",
+  "author": {
+    "name": "Sascha Grollmisch",
+    "email": "goh@idmt.fraunhofer.de"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "man": [],
+  "runnables": [
+    {
+      "name": "My Hello World App.",
+      "path": "/app/index.html",
+      "description": "Call this app as a simple demo."
+    }
+  ],
+  "artifacts": {
+    "apps": [
+      {
+        "artifactId": "demo",
+        "description": "This is a simple pre-generated app.",
+        "endpoints": [
+          {
+            "endpointId": "main",
+            "resources": [
+              "index.html"
+            ],
+            "dependencies": []
+          }
+        ]
+      }
+    ],
+    "elementaryComponents": [
+      {
+        "artifactId": "fft-ifft",
+        "description": "forward and backwards fft with optional windowing",
+        "endpoints": [
+          {
+            "endpointId": "main",
+            "description": "This is recommended for you use with webcomponents.",
+            "resources": [
+              "fft-ifft.html"
+            ],
+            "dependencies": [
+              "cubx.core.rte@1.1.1/cubxpolymer/main"
+            ]
+          }
+        ],
+        "slots": [
+          {
+            "slotId": "forward",
+            "direction": [
+              "input"
+            ],
+            "type": "Float32Array"
+          },
+          {
+            "slotId": "inverse",
+            "direction": [
+              "input"
+            ],
+            "type": "[Float32Array, Float32Array]"
+          },
+          {
+            "slotId": "forwardWindowed",
+            "direction": [
+              "input"
+            ],
+            "type": "Float32Array"
+          },
+          {
+            "slotId": "inverseWindowed",
+            "direction": [
+              "input"
+            ],
+            "type": "[Float32Array, Float32Array]"
+          },
+          {
+            "slotId": "sampleRate",
+            "direction": [
+              "input"
+            ],
+            "type": "int",
+            "value": 44100
+          },
+          {
+            "slotId": "resultFromForward",
+            "direction": [
+              "output"
+            ],
+            "type": "[Float32Array, Float32Array]"
+          },
+          {
+            "slotId": "resultFromInverse",
+            "direction": [
+              "output"
+            ],
+            "type": "Float32Array"
+          },
+          {
+            "slotId": "resultFromForwardWindowed",
+            "direction": [
+              "output"
+            ],
+            "type": "[Float32Array, Float32Array]"
+          },
+          {
+            "slotId": "resultFromInverseWindowed",
+            "direction": [
+              "output"
+            ],
+            "type": "Float32Array"
+          }
+        ]
+      },
+      {
+        "artifactId": "audio-equalizer",
+        "description": "audio eq on spectrum",
+        "endpoints": [
+          {
+            "endpointId": "main",
+            "description": "This is recommended for you use with webcomponents.",
+            "resources": [
+              "audio-equalizer.html"
+            ],
+            "dependencies": [
+              "cubx.core.rte@1.1.1/cubxpolymer/main"
+            ]
+          }
+        ],
+        "slots": [
+            {
+                "slotId":"input",
+                "direction":["input"],
+                "type":"[Float32Array, Float32Array]"
+            },
+            {
+                "slotId":"output",
+                "direction":["output"],
+                "type":"[Float32Array, Float32Array]"
+            },
+            {
+                "slotId":"treble",
+                "direction":["input"],
+                "type":"int"
+            },
+            {
+                "slotId":"middle",
+                "direction":["input"],
+                "type":"int"
+            },
+            {
+                "slotId":"bass",
+                "direction":["input"],
+                "type":"int"
+            }
+        ]
+      }
+    ],
+    "compoundComponents": [],
+    "utilities": []
+  }
+}

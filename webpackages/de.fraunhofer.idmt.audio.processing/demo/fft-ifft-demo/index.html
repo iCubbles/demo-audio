@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo fft processing</title>
+
+    <script src="../../../cubx.core.rte@1.1.1/webcomponents/webcomponents-lite.js"></script>
+
+    <script>
+        window.cubx = {
+            "CRCInit": {
+                "rootDependencies": [
+                    "this/fft-ifft/main",
+                ]
+            }
+        }
+    </script>
+
+    <!-- include crc-loader webresource from base
+        1) Want to add a main script?
+        Add the following attribute: data-crc-main="js/main.js"
+    -->
+
+    <script src="../../../cubx.core.rte@1.1.1/crc-loader/js/main.js" data-CRCInit.loadCIF="true" data-crc-main="main.js"></script>
+
+</head>
+<body>
+<h2>Demopage for the Cubixx-Component <code>fft-ifft</code></h2>
+<p>FFT component with forward and inverse.</p>
+<p>Forward receives samples as Float32Array. Result is returned via resultFromForward as magnitude followed by phase.</p>
+<p>Inverse receives magntiude and phase as [Float32Array, Float32Array]. Result is returned via resultFromInverse as Float32Array samples.</p>
+<p>Sample rate can be changed via slot.</p>
+<hr>
+<!-- The cubixx client-runtime-container is bound to the next div -->
+<div cubx-core-crc>
+    <!-- Change this to your element name ... -->
+    <fft-ifft></fft-ifft>
+</div>
+</body>
+</html>
