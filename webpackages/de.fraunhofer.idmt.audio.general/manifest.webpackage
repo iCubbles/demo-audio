@@ -42,7 +42,9 @@
         "endpoints": [
           {
             "endpointId": "main",
-            "resources": [],
+            "resources": [
+                "css/audio-player.css"
+            ],
             "dependencies": [
                 "de.fraunhofer.idmt.audio.input-output/input-audio-file/main",
                 "de.fraunhofer.idmt.audio.input-output/output-speakers/main",
