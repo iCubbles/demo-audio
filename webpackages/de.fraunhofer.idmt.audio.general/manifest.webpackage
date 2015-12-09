@@ -113,7 +113,8 @@
             "destination": {
               "memberIdRef": "fft",
               "slot": "forwardWindowed"
-            }
+            },
+            "repeatedValues":true
           },
           {
             "connectionId": "fftIn",
@@ -124,7 +125,8 @@
             "destination": {
               "memberIdRef": "eq",
               "slot": "input"
-            }
+            },
+            "repeatedValues":true
           },
           {
             "connectionId": "eqOut",
@@ -135,7 +137,8 @@
             "destination": {
               "memberIdRef": "fft",
               "slot": "inverseWindowed"
-            }
+            },
+            "repeatedValues":true
           },
           {
             "connectionId": "fftOut",
@@ -146,7 +149,8 @@
             "destination": {
               "memberIdRef": "output",
               "slot": "samples"
-            }
+            },
+            "repeatedValues":true
           },
           {
             "connectionId": "states",
