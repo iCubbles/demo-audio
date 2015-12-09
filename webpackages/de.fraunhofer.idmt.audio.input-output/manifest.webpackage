@@ -101,7 +101,7 @@
             "slotId": "allStates",
             "type": "array",
             "direction": [
-              "output"
+              "input", "output"
             ]
           }
         ]

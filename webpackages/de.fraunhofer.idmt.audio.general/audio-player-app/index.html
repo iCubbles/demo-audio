@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Audio player app</title>
+
+    <script src="../../cubx.core.rte@1.1.1/webcomponents/webcomponents-lite.js"></script>
+
+    <script>
+        window.cubx = {
+            "CRCInit": {
+                "rootDependencies": [
+                    "this/audio-player/main"
+                ]
+            }
+        };
+    </script>
+
+    <!-- include crc-loader webresource from base
+        1) Want to add a main script?
+        Add the following attribute: data-crc-main="js/main.js"
+    -->
+
+    <script src="../../cubx.core.rte@1.1.1/crc-loader/js/main.js" data-CRCInit.loadCIF="true"></script>
+
+</head>
+<body>
+<div cubx-core-crc>
+    <!-- Change this to your element name ... -->
+    <audio-player></audio-player>
+</div>
+</body>
+</html>

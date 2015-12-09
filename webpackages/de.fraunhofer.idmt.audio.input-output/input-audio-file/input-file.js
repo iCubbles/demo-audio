@@ -33,6 +33,10 @@
             this.myPCMProcessingNode = this.audioCtx.createScriptProcessor(this.blockSize, 1, 1);
             this.myPCMProcessingNode.onaudioprocess = this.processMethod.bind(this);
             this.myPCMProcessingNode.connect(this.audioCtx.destination);
+            window.addEventListener('cifReady', this.initStates.bind(this));
+        },
+        
+        initStates: function() {
             this.setAllStates([this.play, this.pause, this.stop]);
             this.changeToStopState();
         },
