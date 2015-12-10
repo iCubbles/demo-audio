@@ -48,6 +48,8 @@
         },
         
          modelForwardChanged: function(value) { 
+            if (Object.keys(value).length===0)
+                return;
             //change string to float32Array
             if (Object.keys(value).length !== this.blockSize) {
                 this.init(Object.keys(value).length);
@@ -74,7 +76,10 @@
             this.setResultFromForward([magn, phase]);
         },
         
-        modelInverseChanged: function(value) {       
+        modelInverseChanged: function(value) {   
+            if (Object.keys(value).length===0)
+                return;
+            
             var magn = value[0];
             var phase = value[1];
             
@@ -91,6 +96,9 @@
         },
         
         modelForwardWindowedChanged: function(value) { 
+            if (Object.keys(value).length===0)
+                return;
+            
             //change string to float32Array            
             if (Object.keys(value).length !== this.blockSize) {
                 this.init(Object.keys(value).length);
@@ -131,7 +139,10 @@
             }
         },
         
-        modelInverseWindowedChanged: function(value) {       
+        modelInverseWindowedChanged: function(value) {   
+            if (Object.keys(value).length===0)
+                return;
+            
             var magn = value[0];
             var phase = value[1];
             

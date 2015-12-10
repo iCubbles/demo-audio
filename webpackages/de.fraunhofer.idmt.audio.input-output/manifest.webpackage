@@ -53,10 +53,11 @@
         "slots": [
           {
             "slotId": "samples",
-            "type": "Float32Array",
             "direction": [
               "output"
-            ]
+            ],
+            "type": "object",
+            "description": "type is Float32Array"
           }
         ]
       },
@@ -78,10 +79,11 @@
         "slots": [
           {
             "slotId": "samples",
-            "type": "Float32Array",
             "direction": [
               "output"
-            ]
+            ],
+            "type": "object",
+            "description": "type is Float32Array"
           },
           {
             "slotId": "source",
@@ -99,10 +101,11 @@
           },
           {
             "slotId": "allStates",
-            "type": "array",
             "direction": [
               "input", "output"
-            ]
+            ],
+            "type": "object",
+            "description": "type is array with strings"
           }
         ]
       },
@@ -124,14 +127,15 @@
         "slots": [
           {
             "slotId": "samples",
-            "type": "Float32Array",
             "direction": [
               "input"
-            ]
+            ],
+            "type": "object",
+            "description": "type is Float32Array"
           },
           {
             "slotId": "volume",
-            "type": "int",
+            "type": "number",
             "direction": [
               "input"
             ]

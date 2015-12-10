@@ -1,3 +1,11 @@
 {
-  "activeWebpackage": "de.fraunhofer.idmt.audio.general"
+  "activeWebpackage": "de.fraunhofer.idmt.audio.processing",
+  "webpackageUpload": {
+    "source": "<%= param.src %>",
+    "target": {
+      "url": "https://webblebase.net",
+      "proxy": ""
+    },
+    "debug": false
+  }
 }

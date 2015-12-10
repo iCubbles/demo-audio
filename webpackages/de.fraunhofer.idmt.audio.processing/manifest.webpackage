@@ -56,35 +56,39 @@
             "direction": [
               "input"
             ],
-            "type": "Float32Array"
+            "type": "object",
+            "description": "type is Float32Array"
           },
           {
             "slotId": "inverse",
             "direction": [
               "input"
             ],
-            "type": "[Float32Array, Float32Array]"
+            "type": "object",
+            "description": "type is [Float32Array, Float32Array]"
           },
           {
             "slotId": "forwardWindowed",
             "direction": [
               "input"
             ],
-            "type": "Float32Array"
+            "type": "object",
+            "description": "type is Float32Array"
           },
           {
             "slotId": "inverseWindowed",
             "direction": [
               "input"
             ],
-            "type": "[Float32Array, Float32Array]"
+            "type": "object",
+            "description": "type is [Float32Array, Float32Array]"
           },
           {
             "slotId": "sampleRate",
             "direction": [
               "input"
             ],
-            "type": "int",
+            "type": "number",
             "value": 44100
           },
           {
@@ -92,28 +96,32 @@
             "direction": [
               "output"
             ],
-            "type": "[Float32Array, Float32Array]"
+            "type": "object",
+            "description": "type is [Float32Array, Float32Array]"
           },
           {
             "slotId": "resultFromInverse",
             "direction": [
               "output"
             ],
-            "type": "Float32Array"
+            "type": "object",
+            "description": "type is Float32Array"
           },
           {
             "slotId": "resultFromForwardWindowed",
             "direction": [
               "output"
             ],
-            "type": "[Float32Array, Float32Array]"
+            "type": "object",
+            "description": "type is [Float32Array, Float32Array]"
           },
           {
             "slotId": "resultFromInverseWindowed",
             "direction": [
               "output"
             ],
-            "type": "Float32Array"
+            "type": "object",
+            "description": "type is Float32Array"
           }
         ]
       },
@@ -136,27 +144,29 @@
             {
                 "slotId":"input",
                 "direction":["input"],
-                "type":"[Float32Array, Float32Array]"
+                "type":"object",
+                "description": "type is [Float32Array, Float32Array]"
             },
             {
                 "slotId":"output",
                 "direction":["output"],
-                "type":"[Float32Array, Float32Array]"
+                "type":"object",
+                "description": "type is [Float32Array, Float32Array]"
             },
             {
                 "slotId":"treble",
                 "direction":["input"],
-                "type":"int"
+                "type":"number"
             },
             {
                 "slotId":"middle",
                 "direction":["input"],
-                "type":"int"
+                "type":"number"
             },
             {
                 "slotId":"bass",
                 "direction":["input"],
-                "type":"int"
+                "type":"number"
             }
         ]
       }

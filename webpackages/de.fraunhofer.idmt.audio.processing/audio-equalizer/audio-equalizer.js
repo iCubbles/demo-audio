@@ -48,7 +48,10 @@
             
             this.bass = value/100;
         },
-        modelInputChanged: function(value) {       
+        modelInputChanged: function(value) { 
+            if (Object.keys(value).length===0)
+                return;
+            
             var magn = value[0];
             var phase = value[1];
             
