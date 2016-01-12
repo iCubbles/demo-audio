@@ -2,7 +2,7 @@
   "name": "processing",
   "groupId": "de.fraunhofer.idmt.audio",
   "version": "0.1.0-SNAPSHOT",
-  "modelVersion": "8.1.0",
+  "modelVersion": "8.3.0",
   "docType": "webpackage",
   "author": {
     "name": "Sascha Grollmisch",
@@ -12,17 +12,19 @@
   "keywords": [],
   "man": [],
   "runnables": [
-    {
-      "name": "My Hello World App.",
-      "path": "/app/index.html",
-      "description": "Call this app as a simple demo."
-    }
   ],
   "artifacts": {
     "apps": [
       {
         "artifactId": "demo",
         "description": "This is a simple pre-generated app.",
+        "runnables": [
+            {
+              "name": "Demo app for audio processing classes.",
+              "path": "/index.html",
+              "description": "Call this app as a simple demo."
+            }
+          ],
         "endpoints": [
           {
             "endpointId": "main",
@@ -46,7 +48,7 @@
               "fft-ifft.html"
             ],
             "dependencies": [
-              "cubx.core.rte@1.1.1/cubxpolymer/main"
+                "cubx.core.rte@1.4.0-SNAPSHOT/cubxpolymer/main"
             ]
           }
         ],
@@ -136,7 +138,7 @@
               "audio-equalizer.html"
             ],
             "dependencies": [
-              "cubx.core.rte@1.1.1/cubxpolymer/main"
+              "cubx.core.rte@1.4.0-SNAPSHOT/cubxpolymer/main"
             ]
           }
         ],

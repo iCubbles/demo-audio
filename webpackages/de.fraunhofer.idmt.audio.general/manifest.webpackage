@@ -2,7 +2,7 @@
   "name": "general",
   "groupId": "de.fraunhofer.idmt.audio",
   "version": "0.1.0-SNAPSHOT",
-  "modelVersion": "8.1.0",
+  "modelVersion": "8.3.0",
   "docType": "webpackage",
   "author": {
     "name": "Sascha Grollmisch",
@@ -12,17 +12,19 @@
   "keywords": [],
   "man": [],
   "runnables": [
-    {
-      "name": "Audi player.",
-      "path": "/audio-player-app/index.html",
-      "description": "Call this app as a simple demo."
-    }
   ],
   "artifacts": {
     "apps": [
       {
         "artifactId": "audio-player-app",
         "description": "This is a simple pre-generated app.",
+        "runnables": [
+          {
+            "name": "Audio player app using audio player compound.",
+            "path": "/index.html",
+            "description": "Call this app as a simple demo."
+          }
+        ],
         "endpoints": [
           {
             "endpointId": "main",
@@ -46,10 +48,10 @@
                 "css/audio-player.css"
             ],
             "dependencies": [
-                "de.fraunhofer.idmt.audio.input-output/input-audio-file/main",
-                "de.fraunhofer.idmt.audio.input-output/output-speakers/main",
-                "de.fraunhofer.idmt.audio.processing/fft-ifft/main",
-                "de.fraunhofer.idmt.audio.processing/audio-equalizer/main",
+                "de.fraunhofer.idmt.audio.input-output@0.1.0-SNAPSHOT/input-audio-file/main",
+                "de.fraunhofer.idmt.audio.input-output@0.1.0-SNAPSHOT/output-speakers/main",
+                "de.fraunhofer.idmt.audio.processing@0.1.0-SNAPSHOT/fft-ifft/main",
+                "de.fraunhofer.idmt.audio.processing@0.1.0-SNAPSHOT/audio-equalizer/main",
                 "de.fraunhofer.idmt.elementaries.slider@0.1.0-SNAPSHOT/slider-number/main",
                 "de.fraunhofer.idmt.elementaries.button-bar@0.1.0-SNAPSHOT/button-bar/main",
                 "de.fraunhofer.idmt.elementaries.input-field@0.1.0-SNAPSHOT/input-text/main",

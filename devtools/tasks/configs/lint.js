@@ -6,7 +6,7 @@ module.exports.tasks = {
     jshint: {
         utils: {
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: '<%= param.src %>/.jshintrc'
             },
             src: [
                 '*.js',
@@ -20,21 +20,25 @@ module.exports.tasks = {
             src: [
                 '<%= param.src %>/**/*.js',
                 '!<%= param.src %>/**/vendor/**',
+                '!<%= param.src %>/**/bower_components/**',
                 '!<%= param.src %>/**/test-results/**'
             ]
         }
     },
     jscs: { // exclude list defined in .jscsrc
-        options: {
-            config: '.jscsrc'
-        },
         utils: {
+            options: {
+                config: '.jscsrc'
+            },
             src: [
                 '*.js',
                 'tasks/**/*.js'
             ]
         },
         client: {
+            options: {
+                config: '<%= param.src %>/.jscsrc'
+            },
             src: [
                 '<%= param.src %>/**/*.js'
             ]

@@ -2,7 +2,7 @@
   "name": "input-output",
   "groupId": "de.fraunhofer.idmt.audio",
   "version": "0.1.0-SNAPSHOT",
-  "modelVersion": "8.1.0",
+  "modelVersion": "8.3.0",
   "docType": "webpackage",
   "author": {
     "name": "Sascha Grollmisch",
@@ -12,17 +12,19 @@
   "keywords": [],
   "man": [],
   "runnables": [
-    {
-      "name": "My Hello World App.",
-      "path": "/app/index.html",
-      "description": "Call this app as a simple demo."
-    }
   ],
   "artifacts": {
     "apps": [
       {
         "artifactId": "demo",
         "description": "Demos for audio i/o.",
+        "runnables": [
+          {
+            "name": "Demos for audio in- and output.",
+            "path": "/index.html",
+            "description": "Call this app as a simple demo."
+          }
+        ],
         "endpoints": [
           {
             "endpointId": "main",
@@ -46,7 +48,7 @@
               "input-microphone.html"
             ],
             "dependencies": [
-              "cubx.core.rte@1.1.1/cubxpolymer/main"
+              "cubx.core.rte@1.4.0-SNAPSHOT/cubxpolymer/main"
             ]
           }
         ],
@@ -72,7 +74,7 @@
               "input-file.html"
             ],
             "dependencies": [
-              "cubx.core.rte@1.1.1/cubxpolymer/main"
+              "cubx.core.rte@1.4.0-SNAPSHOT/cubxpolymer/main"
             ]
           }
         ],
@@ -120,7 +122,7 @@
               "output-speakers.html"
             ],
             "dependencies": [
-              "cubx.core.rte@1.1.1/cubxpolymer/main"
+              "cubx.core.rte@1.4.0-SNAPSHOT/cubxpolymer/main"
             ]
           }
         ],
