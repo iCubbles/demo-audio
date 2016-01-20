@@ -63,6 +63,10 @@
         ],
         "members": [
           {
+            "memberId": "selectFile",
+            "componentId": "de.fraunhofer.idmt.elementaries.select-file@0.1.0-SNAPSHOT/select-file"
+          },
+          {
             "memberId": "inputText",
             "componentId": "de.fraunhofer.idmt.elementaries.input-field@0.1.0-SNAPSHOT/input-text"
           },
@@ -81,10 +85,6 @@
           {
             "memberId": "eq",
             "componentId": "de.fraunhofer.idmt.audio.processing@0.1.0-SNAPSHOT/audio-equalizer"
-          },
-          {
-            "memberId": "selectFile",
-            "componentId": "de.fraunhofer.idmt.elementaries.select-file@0.1.0-SNAPSHOT/select-file"
           },
           {
             "memberId": "buttonBar",
