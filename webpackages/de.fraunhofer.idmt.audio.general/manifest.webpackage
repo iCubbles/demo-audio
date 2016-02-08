@@ -29,7 +29,8 @@
           {
             "endpointId": "main",
             "resources": [
-              "index.html"
+              "index.html",
+              "signal_flow.png"
             ],
             "dependencies": []
           }
@@ -55,7 +56,8 @@
                 "de.fraunhofer.idmt.elementaries.slider@0.1.0-SNAPSHOT/slider-number/main",
                 "de.fraunhofer.idmt.elementaries.button-bar@0.1.0-SNAPSHOT/button-bar/main",
                 "de.fraunhofer.idmt.elementaries.input-field@0.1.0-SNAPSHOT/input-text/main",
-                "de.fraunhofer.idmt.elementaries.select-file@0.1.0-SNAPSHOT/select-file/main"
+                "de.fraunhofer.idmt.elementaries.select-file@0.1.0-SNAPSHOT/select-file/main",
+                "bootstrap-3.3.5@1.0.2/bootstrap/main"
             ]
           }
         ],
