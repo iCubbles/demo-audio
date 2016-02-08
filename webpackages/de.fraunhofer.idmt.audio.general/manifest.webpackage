@@ -118,7 +118,8 @@
               "memberIdRef": "fft",
               "slot": "forwardWindowed"
             },
-            "repeatedValues":true
+            "repeatedValues":true,
+            "copyValue": false
           },
           {
             "connectionId": "fftIn",
@@ -130,7 +131,8 @@
               "memberIdRef": "eq",
               "slot": "input"
             },
-            "repeatedValues":true
+            "repeatedValues":true,
+            "copyValue": false
           },
           {
             "connectionId": "eqOut",
@@ -142,7 +144,8 @@
               "memberIdRef": "fft",
               "slot": "inverseWindowed"
             },
-            "repeatedValues":true
+            "repeatedValues":true,
+            "copyValue": false
           },
           {
             "connectionId": "fftOut",
@@ -154,7 +157,8 @@
               "memberIdRef": "output",
               "slot": "samples"
             },
-            "repeatedValues":true
+            "repeatedValues":true,
+            "copyValue": false
           },
           {
             "connectionId": "states",
