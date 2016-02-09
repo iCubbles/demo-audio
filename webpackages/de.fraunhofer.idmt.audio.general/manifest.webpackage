@@ -46,7 +46,8 @@
           {
             "endpointId": "main",
             "resources": [
-                "css/audio-player.css"
+                "css/audio-player.css",
+                "js/main.js"
             ],
             "dependencies": [
                 "de.fraunhofer.idmt.audio.input-output@0.1.0-SNAPSHOT/input-audio-file/main",
@@ -57,7 +58,8 @@
                 "de.fraunhofer.idmt.elementaries.button-bar@0.1.0-SNAPSHOT/button-bar/main",
                 "de.fraunhofer.idmt.elementaries.input-field@0.1.0-SNAPSHOT/input-text/main",
                 "de.fraunhofer.idmt.elementaries.select-file@0.1.0-SNAPSHOT/select-file/main",
-                "bootstrap-3.3.5@1.0.2/bootstrap/main"
+                "bootstrap-3.3.5@1.0.2/bootstrap/main",
+                "jquery-2.1.4@1.0.0/jquery/main"
             ]
           }
         ],
@@ -65,28 +67,12 @@
         ],
         "members": [
           {
-            "memberId": "selectFile",
-            "componentId": "de.fraunhofer.idmt.elementaries.select-file@0.1.0-SNAPSHOT/select-file"
-          },
-          {
             "memberId": "inputText",
             "componentId": "de.fraunhofer.idmt.elementaries.input-field@0.1.0-SNAPSHOT/input-text"
           },
           {
-            "memberId": "input",
-            "componentId": "de.fraunhofer.idmt.audio.input-output@0.1.0-SNAPSHOT/input-audio-file"
-          },
-          {
-            "memberId": "output",
-            "componentId": "de.fraunhofer.idmt.audio.input-output@0.1.0-SNAPSHOT/output-speakers"
-          },
-          {
-            "memberId": "fft",
-            "componentId": "de.fraunhofer.idmt.audio.processing@0.1.0-SNAPSHOT/fft-ifft"
-          },
-          {
-            "memberId": "eq",
-            "componentId": "de.fraunhofer.idmt.audio.processing@0.1.0-SNAPSHOT/audio-equalizer"
+            "memberId": "selectFile",
+            "componentId": "de.fraunhofer.idmt.elementaries.select-file@0.1.0-SNAPSHOT/select-file"
           },
           {
             "memberId": "buttonBar",
@@ -107,7 +93,23 @@
           {
             "memberId": "trebleSlider",
             "componentId": "de.fraunhofer.idmt.elementaries.slider@0.1.0-SNAPSHOT/slider-number"
-          }
+          },
+          {
+            "memberId": "input",
+            "componentId": "de.fraunhofer.idmt.audio.input-output@0.1.0-SNAPSHOT/input-audio-file"
+          },
+          {
+            "memberId": "output",
+            "componentId": "de.fraunhofer.idmt.audio.input-output@0.1.0-SNAPSHOT/output-speakers"
+          },
+          {
+            "memberId": "fft",
+            "componentId": "de.fraunhofer.idmt.audio.processing@0.1.0-SNAPSHOT/fft-ifft"
+          },
+          {
+            "memberId": "eq",
+            "componentId": "de.fraunhofer.idmt.audio.processing@0.1.0-SNAPSHOT/audio-equalizer"
+          }          
         ],
         "connections": [
           {
@@ -248,6 +250,17 @@
             "destination": {
               "memberIdRef": "inputText",
               "slot": "value"
+            }
+          },
+          {
+            "connectionId": "inputTextToSoundInput",
+            "source": {
+              "memberIdRef": "inputText",
+              "slot": "value"
+            },
+            "destination": {
+              "memberIdRef": "input",
+              "slot": "source"
             }
           }
         ],

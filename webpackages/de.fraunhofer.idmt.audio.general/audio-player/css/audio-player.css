@@ -1,6 +1,19 @@
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+[cubx-core-crc] {
+    border-radius:10px;
+    border:1px solid #18ab29;
+    background-color: #eaeaea;
+    margin-bottom: 50px;
+}
+
 button {
-        margin-top: 10px;
-        margin-right: 10px;
+        margin-top: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
 	background-color:#44c767;
 	-moz-border-radius:27px;
 	-webkit-border-radius:27px;
@@ -9,8 +22,6 @@ button {
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
 	padding:6px 18px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #2f6627;
@@ -23,26 +34,22 @@ button:active {
 	top:1px;
 }
 
-label {
-    font-family:Arial;
-    font-size:15px;
-    text-shadow:0px 1px 0px #44c767;
+button-bar {
+    margin-left: 40px;
+    margin-bottom: 20px;
 }
 
-input {
-    border: 5px solid white; 
-    border-color: #44c767;
-    padding: 8px;
-    margin: 0 0 10px 0;
-    width: 360px;
+label {
+    font-size:15px !important;
+    color: black !important;
 }
 
 input[type=range] {
   -webkit-appearance: none;
-  border-color: white;
-  width: 100px;
-  margin: 13.8px 0;
+  margin-right: 20px;
+  background: #eaeaea;
 }
+
 input[type=range]:focus {
   outline: none;
 }
