@@ -8,6 +8,10 @@
     border:1px solid #18ab29;
     background-color: #eaeaea;
     margin-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 button {
