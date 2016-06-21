@@ -2,7 +2,7 @@
   "name": "input-output",
   "groupId": "de.fraunhofer.idmt.audio",
   "version": "0.1.0-SNAPSHOT",
-  "modelVersion": "8.3.0",
+  "modelVersion": "8.3.1",
   "docType": "webpackage",
   "author": {
     "name": "Sascha Grollmisch",
@@ -48,7 +48,7 @@
               "input-microphone.html"
             ],
             "dependencies": [
-              "cubx.core.rte@1.4.0-SNAPSHOT/cubxpolymer/main"
+              "cubx.core.rte@1.9.0/cubxpolymer/main"
             ]
           }
         ],
@@ -74,7 +74,7 @@
               "input-file.html"
             ],
             "dependencies": [
-              "cubx.core.rte@1.4.0-SNAPSHOT/cubxpolymer/main"
+              "cubx.core.rte@1.9.0/cubxpolymer/main"
             ]
           }
         ],
@@ -122,7 +122,7 @@
               "output-speakers.html"
             ],
             "dependencies": [
-              "cubx.core.rte@1.4.0-SNAPSHOT/cubxpolymer/main"
+              "cubx.core.rte@1.9.0/cubxpolymer/main"
             ]
           }
         ],

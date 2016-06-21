@@ -2,7 +2,7 @@
   "name": "general",
   "groupId": "de.fraunhofer.idmt.audio",
   "version": "0.1.0-SNAPSHOT",
-  "modelVersion": "8.3.0",
+  "modelVersion": "8.3.1",
   "docType": "webpackage",
   "author": {
     "name": "Sascha Grollmisch",
@@ -54,10 +54,10 @@
                 "de.fraunhofer.idmt.audio.input-output@0.1.0-SNAPSHOT/output-speakers/main",
                 "de.fraunhofer.idmt.audio.processing@0.1.0-SNAPSHOT/fft-ifft/main",
                 "de.fraunhofer.idmt.audio.processing@0.1.0-SNAPSHOT/audio-equalizer/main",
-                "de.fraunhofer.idmt.elementaries.slider@0.1.0-SNAPSHOT/slider-number/main",
-                "de.fraunhofer.idmt.elementaries.button-bar@0.1.0-SNAPSHOT/button-bar/main",
+                "de.fraunhofer.idmt.elementaries.slider@0.1.2-SNAPSHOT/slider-number/main",
+                "de.fraunhofer.idmt.elementaries.button-bar@0.1.1-SNAPSHOT/button-bar/main",
                 "de.fraunhofer.idmt.elementaries.input-field@0.1.0-SNAPSHOT/input-text/main",
-                "de.fraunhofer.idmt.elementaries.select-file@0.1.0-SNAPSHOT/select-file/main",
+                "de.fraunhofer.idmt.elementaries.select-file@0.1.1-SNAPSHOT/select-file/main",
                 "bootstrap-3.3.5@1.0.2/bootstrap/main",
                 "jquery-2.1.4@1.0.0/jquery/main"
             ]
@@ -72,27 +72,27 @@
           },
           {
             "memberId": "selectFile",
-            "componentId": "de.fraunhofer.idmt.elementaries.select-file@0.1.0-SNAPSHOT/select-file"
+            "componentId": "de.fraunhofer.idmt.elementaries.select-file@0.1.1-SNAPSHOT/select-file"
           },
           {
             "memberId": "buttonBar",
-            "componentId": "de.fraunhofer.idmt.elementaries.button-bar@0.1.0-SNAPSHOT/button-bar"
+            "componentId": "de.fraunhofer.idmt.elementaries.button-bar@0.1.1-SNAPSHOT/button-bar"
           },
           {
             "memberId": "volumeSlider",
-            "componentId": "de.fraunhofer.idmt.elementaries.slider@0.1.0-SNAPSHOT/slider-number"
+            "componentId": "de.fraunhofer.idmt.elementaries.slider@0.1.2-SNAPSHOT/slider-number"
           },
           {
             "memberId": "bassSlider",
-            "componentId": "de.fraunhofer.idmt.elementaries.slider@0.1.0-SNAPSHOT/slider-number"
+            "componentId": "de.fraunhofer.idmt.elementaries.slider@0.1.2-SNAPSHOT/slider-number"
           },
           {
             "memberId": "middleSlider",
-            "componentId": "de.fraunhofer.idmt.elementaries.slider@0.1.0-SNAPSHOT/slider-number"
+            "componentId": "de.fraunhofer.idmt.elementaries.slider@0.1.2-SNAPSHOT/slider-number"
           },
           {
             "memberId": "trebleSlider",
-            "componentId": "de.fraunhofer.idmt.elementaries.slider@0.1.0-SNAPSHOT/slider-number"
+            "componentId": "de.fraunhofer.idmt.elementaries.slider@0.1.2-SNAPSHOT/slider-number"
           },
           {
             "memberId": "input",

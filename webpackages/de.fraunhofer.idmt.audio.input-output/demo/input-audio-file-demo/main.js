@@ -43,7 +43,10 @@ function sourceChanged() {
  * @brief writes samples from component to buffer for output.
  */
 function modelChangeEventListener() {
-    var samples = loader.getSamples();
+    var samples = loader.getSamples(); 
+    if (samples === undefined)
+        return;
+    
     for (var i=0; i<samples.length; i++) {
         sampleBuffer.push(samples[i]);
     }
