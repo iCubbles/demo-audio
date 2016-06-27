@@ -1,13 +1,23 @@
 'use strict';
+var firstTime = true;
 (function() {
-
     document.addEventListener('cifReady', function() {
+        //TODO
+        //use bool check 
+        // -> otherwise cif ready received each time .wrap is called 
+        // -> endless loop
+        if (!firstTime)
+            return;
+        
+        firstTime = false;
+        console.log("ready");
+
         $("head").append('<meta name="viewport" content="width=device-width, initial-scale=1">');
         
-        $('div[cubx-core-crc]').addClass('container');
+        $('div[cubx-core-crc]').addClass('container'); 
         
         $('audio-player').wrap( "<div id='audioPlayerFrame'></div>" );
-        
+
         //file inputs
         $('audio-player').children('[member-id="inputText"], [member-id="selectFile"]').wrapAll( "<div class='row vertical-align'></div>" );
         var inputTextFile = $('[member-id="inputText"]');
