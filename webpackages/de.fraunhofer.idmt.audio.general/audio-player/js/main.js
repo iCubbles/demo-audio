@@ -1,15 +1,6 @@
 'use strict';
-var firstTime = true;
 (function() {
     document.addEventListener('cifReady', function() {
-        //TODO
-        //use bool check 
-        // -> otherwise cif ready received each time .wrap is called 
-        // -> endless loop
-        if (!firstTime)
-            return;
-        
-        firstTime = false;
         console.log("ready");
 
         $("head").append('<meta name="viewport" content="width=device-width, initial-scale=1">');
