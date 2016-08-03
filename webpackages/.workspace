@@ -1,4 +1,4 @@
 {
-  "activeWebpackage": "de.fraunhofer.idmt.audio.general",
-  "remoteStoreUrl": "https://webblebase.net/idmt"
+  "activeWebpackage": "de.fraunhofer.idmt.audio.processing",
+  "remoteStoreUrl": "http://webblebase/idmt"
 }

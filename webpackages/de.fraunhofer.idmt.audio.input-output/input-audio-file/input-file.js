@@ -50,14 +50,16 @@
             this.req = new XMLHttpRequest(); 
             this.req.open("GET",value,true); 
             this.req.responseType = "arraybuffer"; 
-            this.req.onload = this.audioLoaded.bind(this);
+            this.req.onreadystatechange = this.audioLoaded.bind(this);
             this.req.send(); 
             this.loading = true;
         },
         
         audioLoaded: function() {
-            //decode the loaded data 
-            this.audioCtx.decodeAudioData(this.req.response, this.audioDecoded.bind(this), this.errorCallback.bind(this)); 
+            if(this.req.readyState === 4 && this.req.status === 200){
+                //decode the loaded data 
+                this.audioCtx.decodeAudioData(this.req.response, this.audioDecoded.bind(this), this.errorCallback.bind(this)); 
+            }
         },
         
         audioDecoded: function(buffer) {

@@ -1,7 +1,7 @@
 {
 "uploadConfigs": {
     "release": {
-      "url": "https://webblebase.net/idmt",
+      "url": "http://webblebase/idmt",
       "proxy": "",
       "debug": false
     }
