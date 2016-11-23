@@ -1,9 +1,0 @@
-{
-"uploadConfigs": {
-    "release": {
-      "url": "https://cubbles.world/bde-test",
-      "proxy": "",
-      "debug": false
-    }
-  }
-}
