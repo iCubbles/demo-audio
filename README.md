@@ -1,4 +1,15 @@
-## idmt-audio
+## demo-audio
 
 <hr/>
-Note This page is generated based on the markdown-syntax. For details see <http://daringfireball.net/projects/markdown/syntax/>
+
+This project demonstrate a more complex example of the cubbles technologie.
+
+The audio-player-app demonstrate the streaming incl. processing within from audio files or microphone inputs to the speakers.  
+ 
+ 
+<hr/>
+ 
+The components initial developed 
+from Fraunhofer IDMT within the project ![WebbleTag](./WEBBLETAG.png)  project. 
+  
+
