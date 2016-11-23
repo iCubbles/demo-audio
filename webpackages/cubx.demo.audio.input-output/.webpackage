@@ -1,7 +1,7 @@
 {
 "uploadConfigs": {
     "release": {
-      "url": "http://webblebase/idmt",
+      "url": "https://cubbles.world/bde-test",
       "proxy": "",
       "debug": false
     }

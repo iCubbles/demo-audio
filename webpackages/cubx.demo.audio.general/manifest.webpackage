@@ -67,10 +67,10 @@
                             "cubx.demo.audio.input-output@0.1.0-SNAPSHOT/output-speakers/main",
                             "cubx.demo.audio.processing@0.1.0-SNAPSHOT/fft-ifft/main",
                             "cubx.demo.audio.processing@0.1.0-SNAPSHOT/audio-equalizer/main",
-                            "cubx.demo.elementaries.slider@0.1.2-SNAPSHOT/slider-number/main",
-                            "cubx.demo.elementaries.button-bar@0.1.1-SNAPSHOT/button-bar/main",
-                            "cubx.demo.elementaries.input-field@0.1.0-SNAPSHOT/input-text/main",
-                            "cubx.demo.elementaries.select-file@0.1.1-SNAPSHOT/select-file/main",
+                            "de.fraunhofer.idmt.elementaries.slider@0.1.2-SNAPSHOT/slider-number/main",
+                            "de.fraunhofer.idmt.elementaries.button-bar@0.1.1-SNAPSHOT/button-bar/main",
+                            "de.fraunhofer.idmt.elementaries.input-field@0.1.0-SNAPSHOT/input-text/main",
+                            "de.fraunhofer.idmt.elementaries.select-file@0.1.1-SNAPSHOT/select-file/main",
                             "bootstrap-3.3.5@1.0.2/bootstrap/main",
                             "jquery-2.1.4@1.0.0/jquery/main"
                         ]
@@ -81,31 +81,31 @@
                 "members": [
                     {
                         "memberId": "inputText",
-                        "componentId": "cubx.demo.elementaries.input-field@0.1.0-SNAPSHOT/input-text"
+                        "componentId": "de.fraunhofer.idmt.elementaries.input-field@0.1.0-SNAPSHOT/input-text"
                     },
                     {
                         "memberId": "selectFile",
-                        "componentId": "cubx.demo.elementaries.select-file@0.1.1-SNAPSHOT/select-file"
+                        "componentId": "de.fraunhofer.idmt.elementaries.select-file@0.1.1-SNAPSHOT/select-file"
                     },
                     {
                         "memberId": "buttonBar",
-                        "componentId": "cubx.demo.elementaries.button-bar@0.1.1-SNAPSHOT/button-bar"
+                        "componentId": "de.fraunhofer.idmt.elementaries.button-bar@0.1.1-SNAPSHOT/button-bar"
                     },
                     {
                         "memberId": "volumeSlider",
-                        "componentId": "cubx.demo.elementaries.slider@0.1.2-SNAPSHOT/slider-number"
+                        "componentId": "de.fraunhofer.idmt.elementaries.slider@0.1.2-SNAPSHOT/slider-number"
                     },
                     {
                         "memberId": "bassSlider",
-                        "componentId": "cubx.demo.elementaries.slider@0.1.2-SNAPSHOT/slider-number"
+                        "componentId": "de.fraunhofer.idmt.elementaries.slider@0.1.2-SNAPSHOT/slider-number"
                     },
                     {
                         "memberId": "middleSlider",
-                        "componentId": "cubx.demo.elementaries.slider@0.1.2-SNAPSHOT/slider-number"
+                        "componentId": "de.fraunhofer.idmt.elementaries.slider@0.1.2-SNAPSHOT/slider-number"
                     },
                     {
                         "memberId": "trebleSlider",
-                        "componentId": "cubx.demo.elementaries.slider@0.1.2-SNAPSHOT/slider-number"
+                        "componentId": "de.fraunhofer.idmt.elementaries.slider@0.1.2-SNAPSHOT/slider-number"
                     },
                     {
                         "memberId": "input",
