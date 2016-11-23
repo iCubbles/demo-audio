@@ -175,11 +175,11 @@
                 "members": [
                     {
                         "memberId": "input",
-                        "componentId": "de.fraunhofer.idmt.audio.input-output@0.1.0-SNAPSHOT/input-microphone"
+                        "componentId": "cubx.demo.audio.input-output@0.1.0-SNAPSHOT/input-microphone"
                     },
                     {
                         "memberId": "output",
-                        "componentId": "de.fraunhofer.idmt.audio.input-output@0.1.0-SNAPSHOT/output-speakers"
+                        "componentId": "cubx.demo.audio.input-output@0.1.0-SNAPSHOT/output-speakers"
                     }
                 ],
                 "connections": [
