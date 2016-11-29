@@ -1,805 +1,783 @@
 {
-    "name": "audio-player",
-    "groupId": "cubx.demo",
-    "version": "0.1.0-SNAPSHOT",
-    "modelVersion": "8.3.1",
-    "docType": "webpackage",
-    "author": {
-        "name": "Judit Ross",
-        "email": "judit.ross@incowia.com"
-    },
-    "license": "MIT",
-    "keywords": [
-        "cubbles",
-        "compound"
+  "name": "audio-player",
+  "groupId": "cubx.demo",
+  "version": "0.1.0-SNAPSHOT",
+  "modelVersion": "9.1.1",
+  "docType": "webpackage",
+  "author": {
+    "name": "Judit Ross",
+    "email": "judit.ross@incowia.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cubbles",
+    "compound"
+  ],
+  "man": [],
+  "runnables": [],
+  "artifacts": {
+    "apps": [
+      {
+        "artifactId": "audio-player-app",
+        "description": "This is a simple pre-generated app.",
+        "runnables": [
+          {
+            "name": "Audio player app using audio player compound.",
+            "path": "/index.html",
+            "description": "Call this app as a simple demo."
+          }
+        ],
+        "resources": [
+          "index.html",
+          "signal_flow.png"
+        ]
+      },
+      {
+        "artifactId": "microphone-to-speakers-demo",
+        "description": "Demos for audio i/o.",
+        "runnables": [
+          {
+            "name": "Demo applications for audio i/o compounds",
+            "path": "/index.html",
+            "description": "Call this app as a simple demo."
+          }
+        ],
+        "resources": [
+          "index.html"
+        ]
+      }
     ],
-    "man": [ ],
-    "runnables": [
+    "elementaryComponents": [
+      {
+        "artifactId": "input-microphone",
+        "description": "grabs samples from audio input device",
+        "slots": [
+          {
+            "slotId": "samples",
+            "direction": [
+              "output"
+            ],
+            "type": "object",
+            "description": "type is Float32Array"
+          }
+        ],
+        "resources": [
+          "input-microphone.html"
+        ],
+        "dependencies": [
+          {
+            "webpackageId": "cubx.core.rte@2.1.0",
+            "artifactId": "cubxpolymer"
+          }
+        ]
+      },
+      {
+        "artifactId": "input-audio-file",
+        "description": "grabs samples from input file/stream",
+        "slots": [
+          {
+            "slotId": "samples",
+            "direction": [
+              "output"
+            ],
+            "type": "object",
+            "description": "type is Float32Array"
+          },
+          {
+            "slotId": "source",
+            "type": "string",
+            "direction": [
+              "input"
+            ]
+          },
+          {
+            "slotId": "state",
+            "type": "string",
+            "direction": [
+              "input"
+            ]
+          },
+          {
+            "slotId": "allStates",
+            "direction": [
+              "input",
+              "output"
+            ],
+            "type": "object",
+            "description": "type is array with strings"
+          }
+        ],
+        "resources": [
+          "input-file.html"
+        ],
+        "dependencies": [
+          {
+            "webpackageId": "cubx.core.rte@2.1.0",
+            "artifactId": "cubxpolymer"
+          }
+        ]
+      },
+      {
+        "artifactId": "output-speakers",
+        "description": "outputs samples to speakers",
+        "slots": [
+          {
+            "slotId": "samples",
+            "direction": [
+              "input"
+            ],
+            "type": "object",
+            "description": "type is Float32Array"
+          },
+          {
+            "slotId": "volume",
+            "type": "number",
+            "direction": [
+              "input"
+            ]
+          }
+        ],
+        "resources": [
+          "output-speakers.html"
+        ],
+        "dependencies": [
+          {
+            "webpackageId": "cubx.core.rte@2.1.0",
+            "artifactId": "cubxpolymer"
+          }
+        ]
+      },
+      {
+        "artifactId": "fft-ifft",
+        "description": "forward and backwards fft with optional windowing",
+        "slots": [
+          {
+            "slotId": "forward",
+            "direction": [
+              "input"
+            ],
+            "type": "object",
+            "description": "type is Float32Array"
+          },
+          {
+            "slotId": "inverse",
+            "direction": [
+              "input"
+            ],
+            "type": "object",
+            "description": "type is [Float32Array, Float32Array]"
+          },
+          {
+            "slotId": "forwardWindowed",
+            "direction": [
+              "input"
+            ],
+            "type": "object",
+            "description": "type is Float32Array"
+          },
+          {
+            "slotId": "inverseWindowed",
+            "direction": [
+              "input"
+            ],
+            "type": "object",
+            "description": "type is [Float32Array, Float32Array]"
+          },
+          {
+            "slotId": "sampleRate",
+            "direction": [
+              "input"
+            ],
+            "type": "number",
+            "value": 44100
+          },
+          {
+            "slotId": "resultFromForward",
+            "direction": [
+              "output"
+            ],
+            "type": "object",
+            "description": "type is [Float32Array, Float32Array]"
+          },
+          {
+            "slotId": "resultFromInverse",
+            "direction": [
+              "output"
+            ],
+            "type": "object",
+            "description": "type is Float32Array"
+          },
+          {
+            "slotId": "resultFromForwardWindowed",
+            "direction": [
+              "output"
+            ],
+            "type": "object",
+            "description": "type is [Float32Array, Float32Array]"
+          },
+          {
+            "slotId": "resultFromInverseWindowed",
+            "direction": [
+              "output"
+            ],
+            "type": "object",
+            "description": "type is Float32Array"
+          }
+        ],
+        "resources": [
+          "fft-ifft.html"
+        ],
+        "dependencies": [
+          {
+            "webpackageId": "cubx.core.rte@2.1.0",
+            "artifactId": "cubxpolymer"
+          }
+        ]
+      },
+      {
+        "artifactId": "audio-equalizer",
+        "description": "audio eq on spectrum",
+        "slots": [
+          {
+            "slotId": "input",
+            "direction": [
+              "input"
+            ],
+            "type": "object",
+            "description": "type is [Float32Array, Float32Array]"
+          },
+          {
+            "slotId": "output",
+            "direction": [
+              "output"
+            ],
+            "type": "object",
+            "description": "type is [Float32Array, Float32Array]"
+          },
+          {
+            "slotId": "treble",
+            "direction": [
+              "input"
+            ],
+            "type": "number"
+          },
+          {
+            "slotId": "middle",
+            "direction": [
+              "input"
+            ],
+            "type": "number"
+          },
+          {
+            "slotId": "bass",
+            "direction": [
+              "input"
+            ],
+            "type": "number"
+          }
+        ],
+        "resources": [
+          "audio-equalizer.html"
+        ],
+        "dependencies": [
+          {
+            "webpackageId": "cubx.core.rte@2.1.0",
+            "artifactId": "cubxpolymer"
+          }
+        ]
+      },
+      {
+        "artifactId": "button-bar",
+        "description": "button bar with flexible number of buttons",
+        "slots": [
+          {
+            "slotId": "buttons",
+            "type": "array",
+            "direction": [
+              "input"
+            ]
+          },
+          {
+            "slotId": "pressed",
+            "type": "string",
+            "direction": [
+              "output"
+            ]
+          }
+        ],
+        "resources": [
+          "button-bar.html"
+        ],
+        "dependencies": [
+          {
+            "webpackageId": "cubx.core.rte@2.1.0",
+            "artifactId": "cubxpolymer"
+          }
+        ]
+      },
+      {
+        "artifactId": "input-text",
+        "description": "input with i/o slots and label",
+        "slots": [
+          {
+            "slotId": "value",
+            "type": "string",
+            "direction": [
+              "input",
+              "output"
+            ],
+            "value": ""
+          },
+          {
+            "slotId": "label",
+            "type": "string",
+            "direction": [
+              "input",
+              "output"
+            ],
+            "value": "Label"
+          }
+        ],
+        "resources": [
+          "input-text.html"
+        ],
+        "dependencies": [
+          {
+            "webpackageId": "cubx.core.rte@2.1.0",
+            "artifactId": "cubxpolymer"
+          }
+        ]
+      },
+      {
+        "artifactId": "slider-number",
+        "description": "slider with number input/output slot",
+        "slots": [
+          {
+            "slotId": "value",
+            "type": "number",
+            "direction": [
+              "input",
+              "output"
+            ],
+            "value": 10
+          },
+          {
+            "slotId": "max",
+            "type": "number",
+            "direction": [
+              "input"
+            ],
+            "value": 100
+          },
+          {
+            "slotId": "min",
+            "type": "number",
+            "direction": [
+              "input"
+            ],
+            "value": 0
+          },
+          {
+            "slotId": "label",
+            "type": "string",
+            "direction": [
+              "input",
+              "output"
+            ],
+            "value": "Number slider"
+          },
+          {
+            "slotId": "onDrag",
+            "type": "boolean",
+            "direction": [
+              "input"
+            ],
+            "value": false,
+            "description": "indicates whether an updated value should be propagated during drag or only on change (after drop)"
+          }
+        ],
+        "resources": [
+          "slider-number.html"
+        ],
+        "dependencies": [
+          {
+            "webpackageId": "cubx.core.rte@2.1.0",
+            "artifactId": "cubxpolymer"
+          }
+        ]
+      },
+      {
+        "artifactId": "select-file",
+        "description": "select file",
+        "slots": [
+          {
+            "slotId": "url",
+            "type": "string",
+            "direction": [
+              "output"
+            ]
+          },
+          {
+            "slotId": "filename",
+            "type": "string",
+            "direction": [
+              "output"
+            ],
+            "value": "Nothing selected"
+          }
+        ],
+        "resources": [
+          "select-file.html"
+        ],
+        "dependencies": [
+          {
+            "webpackageId": "cubx.core.rte@2.1.0",
+            "artifactId": "cubxpolymer"
+          }
+        ]
+      }
     ],
-    "artifacts": {
-        "apps": [
-            {
-                "artifactId": "audio-player-app",
-                "description": "This is a simple pre-generated app.",
-                "runnables": [
-                    {
-                        "name": "Audio player app using audio player compound.",
-                        "path": "/index.html",
-                        "description": "Call this app as a simple demo."
-                    }
-                ],
-                "endpoints": [
-                    {
-                        "endpointId": "main",
-                        "resources": [
-                            "index.html",
-                            "signal_flow.png"
-                        ],
-                        "dependencies": [ ]
-                    }
-                ]
-            },
-            {
-                "artifactId": "microphone-to-speakers-demo",
-                "description": "Demos for audio i/o.",
-                "runnables": [
-                    {
-                        "name": "Demo applications for audio i/o compounds",
-                        "path": "/index.html",
-                        "description": "Call this app as a simple demo."
-                    }
-                ],
-                "endpoints": [
-                    {
-                        "endpointId": "main",
-                        "resources": [
-                            "index.html"
-                        ],
-                        "dependencies": [ ]
-                    }
-                ]
-            }
+    "compoundComponents": [
+      {
+        "artifactId": "audio-player",
+        "description": "audio player including equalizer that uses different elementaries",
+        "slots": [],
+        "members": [
+          {
+            "memberId": "inputText",
+            "artifactId": "input-text"
+          },
+          {
+            "memberId": "selectFile",
+            "artifactId": "select-file"
+          },
+          {
+            "memberId": "buttonBar",
+            "artifactId": "button-bar"
+          },
+          {
+            "memberId": "volumeSlider",
+            "artifactId": "slider-number"
+          },
+          {
+            "memberId": "bassSlider",
+            "artifactId": "slider-number"
+          },
+          {
+            "memberId": "middleSlider",
+            "artifactId": "slider-number"
+          },
+          {
+            "memberId": "trebleSlider",
+            "artifactId": "slider-number"
+          },
+          {
+            "memberId": "input",
+            "artifactId": "input-audio-file"
+          },
+          {
+            "memberId": "output",
+            "artifactId": "output-speakers"
+          },
+          {
+            "memberId": "fft",
+            "artifactId": "fft-ifft"
+          },
+          {
+            "memberId": "eq",
+            "artifactId": "audio-equalizer"
+          }
         ],
-        "elementaryComponents": [
-            {
-                "artifactId": "input-microphone",
-                "description": "grabs samples from audio input device",
-                "endpoints": [
-                    {
-                        "endpointId": "main",
-                        "description": "This is recommended for you use with webcomponents.",
-                        "resources": [
-                            "input-microphone.html"
-                        ],
-                        "dependencies": [
-                            "cubx.core.rte@1.10.0-SNAPSHOT/cubxpolymer/main"
-                        ]
-                    }
-                ],
-                "slots": [
-                    {
-                        "slotId": "samples",
-                        "direction": [
-                            "output"
-                        ],
-                        "type": "object",
-                        "description": "type is Float32Array"
-                    }
-                ]
+        "connections": [
+          {
+            "connectionId": "sampleIn",
+            "source": {
+              "memberIdRef": "input",
+              "slot": "samples"
             },
-            {
-                "artifactId": "input-audio-file",
-                "description": "grabs samples from input file/stream",
-                "endpoints": [
-                    {
-                        "endpointId": "main",
-                        "description": "This is recommended for you use with webcomponents.",
-                        "resources": [
-                            "input-file.html"
-                        ],
-                        "dependencies": [
-                            "cubx.core.rte@1.10.0-SNAPSHOT/cubxpolymer/main"
-                        ]
-                    }
-                ],
-                "slots": [
-                    {
-                        "slotId": "samples",
-                        "direction": [
-                            "output"
-                        ],
-                        "type": "object",
-                        "description": "type is Float32Array"
-                    },
-                    {
-                        "slotId": "source",
-                        "type": "string",
-                        "direction": [
-                            "input"
-                        ]
-                    },
-                    {
-                        "slotId": "state",
-                        "type": "string",
-                        "direction": [
-                            "input"
-                        ]
-                    },
-                    {
-                        "slotId": "allStates",
-                        "direction": [
-                            "input",
-                            "output"
-                        ],
-                        "type": "object",
-                        "description": "type is array with strings"
-                    }
-                ]
+            "destination": {
+              "memberIdRef": "fft",
+              "slot": "forwardWindowed"
             },
-            {
-                "artifactId": "output-speakers",
-                "description": "outputs samples to speakers",
-                "endpoints": [
-                    {
-                        "endpointId": "main",
-                        "description": "This is recommended for you use with webcomponents.",
-                        "resources": [
-                            "output-speakers.html"
-                        ],
-                        "dependencies": [
-                            "cubx.core.rte@1.9.0/cubxpolymer/main"
-                        ]
-                    }
-                ],
-                "slots": [
-                    {
-                        "slotId": "samples",
-                        "direction": [
-                            "input"
-                        ],
-                        "type": "object",
-                        "description": "type is Float32Array"
-                    },
-                    {
-                        "slotId": "volume",
-                        "type": "number",
-                        "direction": [
-                            "input"
-                        ]
-                    }
-                ]
+            "repeatedValues": true,
+            "copyValue": false
+          },
+          {
+            "connectionId": "fftIn",
+            "source": {
+              "memberIdRef": "fft",
+              "slot": "resultFromForwardWindowed"
             },
-            {
-                "artifactId": "fft-ifft",
-                "description": "forward and backwards fft with optional windowing",
-                "endpoints": [
-                    {
-                        "endpointId": "main",
-                        "description": "This is recommended for you use with webcomponents.",
-                        "resources": [
-                            "fft-ifft.html"
-                        ],
-                        "dependencies": [
-                            "cubx.core.rte@1.10.0-SNAPSHOT/cubxpolymer/main"
-                        ]
-                    }
-                ],
-                "slots": [
-                    {
-                        "slotId": "forward",
-                        "direction": [
-                            "input"
-                        ],
-                        "type": "object",
-                        "description": "type is Float32Array"
-                    },
-                    {
-                        "slotId": "inverse",
-                        "direction": [
-                            "input"
-                        ],
-                        "type": "object",
-                        "description": "type is [Float32Array, Float32Array]"
-                    },
-                    {
-                        "slotId": "forwardWindowed",
-                        "direction": [
-                            "input"
-                        ],
-                        "type": "object",
-                        "description": "type is Float32Array"
-                    },
-                    {
-                        "slotId": "inverseWindowed",
-                        "direction": [
-                            "input"
-                        ],
-                        "type": "object",
-                        "description": "type is [Float32Array, Float32Array]"
-                    },
-                    {
-                        "slotId": "sampleRate",
-                        "direction": [
-                            "input"
-                        ],
-                        "type": "number",
-                        "value": 44100
-                    },
-                    {
-                        "slotId": "resultFromForward",
-                        "direction": [
-                            "output"
-                        ],
-                        "type": "object",
-                        "description": "type is [Float32Array, Float32Array]"
-                    },
-                    {
-                        "slotId": "resultFromInverse",
-                        "direction": [
-                            "output"
-                        ],
-                        "type": "object",
-                        "description": "type is Float32Array"
-                    },
-                    {
-                        "slotId": "resultFromForwardWindowed",
-                        "direction": [
-                            "output"
-                        ],
-                        "type": "object",
-                        "description": "type is [Float32Array, Float32Array]"
-                    },
-                    {
-                        "slotId": "resultFromInverseWindowed",
-                        "direction": [
-                            "output"
-                        ],
-                        "type": "object",
-                        "description": "type is Float32Array"
-                    }
-                ]
+            "destination": {
+              "memberIdRef": "eq",
+              "slot": "input"
             },
-            {
-                "artifactId": "audio-equalizer",
-                "description": "audio eq on spectrum",
-                "endpoints": [
-                    {
-                        "endpointId": "main",
-                        "description": "This is recommended for you use with webcomponents.",
-                        "resources": [
-                            "audio-equalizer.html"
-                        ],
-                        "dependencies": [
-                            "cubx.core.rte@1.10.0-SNAPSHOT/cubxpolymer/main"
-                        ]
-                    }
-                ],
-                "slots": [
-                    {
-                        "slotId": "input",
-                        "direction": [
-                            "input"
-                        ],
-                        "type": "object",
-                        "description": "type is [Float32Array, Float32Array]"
-                    },
-                    {
-                        "slotId": "output",
-                        "direction": [
-                            "output"
-                        ],
-                        "type": "object",
-                        "description": "type is [Float32Array, Float32Array]"
-                    },
-                    {
-                        "slotId": "treble",
-                        "direction": [
-                            "input"
-                        ],
-                        "type": "number"
-                    },
-                    {
-                        "slotId": "middle",
-                        "direction": [
-                            "input"
-                        ],
-                        "type": "number"
-                    },
-                    {
-                        "slotId": "bass",
-                        "direction": [
-                            "input"
-                        ],
-                        "type": "number"
-                    }
-                ]
+            "repeatedValues": true,
+            "copyValue": false
+          },
+          {
+            "connectionId": "eqOut",
+            "source": {
+              "memberIdRef": "eq",
+              "slot": "output"
             },
-            {
-                "artifactId": "button-bar",
-                "description": "button bar with flexible number of buttons",
-                "endpoints": [
-                    {
-                        "endpointId": "main",
-                        "description": "This is recommended for you use with webcomponents.",
-                        "resources": [
-                            "button-bar.html"
-                        ],
-                        "dependencies": [
-                            "cubx.core.rte@1.9.0/cubxpolymer/main"
-                        ]
-                    }
-                ],
-                "slots": [
-                    {
-                        "slotId": "buttons",
-                        "type": "array",
-                        "direction": ["input"]
-                    },
-                    {
-                        "slotId": "pressed",
-                        "type": "string",
-                        "direction": ["output"]
-                    }
-                ]
+            "destination": {
+              "memberIdRef": "fft",
+              "slot": "inverseWindowed"
             },
-            {
-                "artifactId": "input-text",
-                "description": "input with i/o slots and label",
-                "endpoints": [
-                    {
-                        "endpointId": "main",
-                        "description": "This is recommended for you use with webcomponents.",
-                        "resources": [
-                            "input-text.html"
-                        ],
-                        "dependencies": [
-                            "cubx.core.rte@1.9.0/cubxpolymer/main"
-                        ]
-                    }
-                ],
-                "slots": [
-                    {
-                        "slotId": "value",
-                        "type": "string",
-                        "direction": [
-                            "input",
-                            "output"
-                        ],
-                        "value": ""
-                    },
-                    {
-                        "slotId": "label",
-                        "type": "string",
-                        "direction": [
-                            "input",
-                            "output"
-                        ],
-                        "value": "Label"
-                    }
-                ]
+            "repeatedValues": true,
+            "copyValue": false
+          },
+          {
+            "connectionId": "fftOut",
+            "source": {
+              "memberIdRef": "fft",
+              "slot": "resultFromInverseWindowed"
             },
-            {
-                "artifactId": "slider-number",
-                "description": "slider with number input/output slot",
-                "endpoints": [
-                    {
-                        "endpointId": "main",
-                        "description": "This is recommended for you use with webcomponents.",
-                        "resources": [
-                            "slider-number.html"
-                        ],
-                        "dependencies": [
-                            "cubx.core.rte@1.9.0/cubxpolymer/main"
-                        ]
-                    }
-                ],
-                "slots": [
-                    {
-                        "slotId": "value",
-                        "type": "number",
-                        "direction": [
-                            "input",
-                            "output"
-                        ],
-                        "value": 10
-                    },
-                    {
-                        "slotId": "max",
-                        "type": "number",
-                        "direction": [
-                            "input"
-                        ],
-                        "value": 100
-                    },
-                    {
-                        "slotId": "min",
-                        "type": "number",
-                        "direction": [
-                            "input"
-                        ],
-                        "value": 0
-                    },
-                    {
-                        "slotId": "label",
-                        "type": "string",
-                        "direction": [
-                            "input",
-                            "output"
-                        ],
-                        "value": "Number slider"
-                    },
-                    {
-                        "slotId": "onDrag",
-                        "type": "boolean",
-                        "direction": [
-                            "input"
-                        ],
-                        "value": false,
-                        "description": "indicates whether an updated value should be propagated during drag or only on change (after drop)"
-                    }
-                ]
+            "destination": {
+              "memberIdRef": "output",
+              "slot": "samples"
             },
-            {
-                "artifactId": "select-file",
-                "description": "select file",
-                "endpoints": [
-                    {
-                        "endpointId": "main",
-                        "description": "This is recommended for you use with webcomponents.",
-                        "resources": [
-                            "select-file.html"
-                        ],
-                        "dependencies": [
-                            "cubx.core.rte@1.9.0/cubxpolymer/main"
-                        ]
-                    }
-                ],
-                "slots": [
-                    {
-                        "slotId": "url",
-                        "type": "string",
-                        "direction": [
-                            "output"
-                        ]
-                    },
-                    {
-                        "slotId": "filename",
-                        "type": "string",
-                        "direction": [
-                            "output"
-                        ],
-                        "value": "Nothing selected"
-                    }
-                ]
+            "repeatedValues": true,
+            "copyValue": false
+          },
+          {
+            "connectionId": "states",
+            "source": {
+              "memberIdRef": "input",
+              "slot": "allStates"
+            },
+            "destination": {
+              "memberIdRef": "buttonBar",
+              "slot": "buttons"
             }
-
-        ],
-        "compoundComponents": [
-            {
-                "artifactId": "audio-player",
-                "description": "audio player including equalizer that uses different elementaries",
-                "endpoints": [
-                    {
-                        "endpointId": "main",
-                        "resources": [
-                            "css/audio-player.css",
-                            "js/main.js"
-                        ],
-                        "dependencies": [
-                            "this/input-audio-file/main",
-                            "this/output-speakers/main",
-                            "this/fft-ifft/main",
-                            "this/audio-equalizer/main",
-                            "this/slider-number/main",
-                            "this/button-bar/main",
-                            "this/input-text/main",
-                            "this/select-file/main",
-                            "bootstrap-3.3.5@1.0.2/bootstrap/main",
-                            "jquery-2.1.4@1.0.0/jquery/main"
-                        ]
-                    }
-                ],
-                "slots": [
-                ],
-                "members": [
-                    {
-                        "memberId": "inputText",
-                        "componentId": "this/input-text"
-                    },
-                    {
-                        "memberId": "selectFile",
-                        "componentId": "this/select-file"
-                    },
-                    {
-                        "memberId": "buttonBar",
-                        "componentId": "this/button-bar"
-                    },
-                    {
-                        "memberId": "volumeSlider",
-                        "componentId": "this/slider-number"
-                    },
-                    {
-                        "memberId": "bassSlider",
-                        "componentId": "this/slider-number"
-                    },
-                    {
-                        "memberId": "middleSlider",
-                        "componentId": "this/slider-number"
-                    },
-                    {
-                        "memberId": "trebleSlider",
-                        "componentId": "this/slider-number"
-                    },
-                    {
-                        "memberId": "input",
-                        "componentId": "this/input-audio-file"
-                    },
-                    {
-                        "memberId": "output",
-                        "componentId": "this/output-speakers"
-                    },
-                    {
-                        "memberId": "fft",
-                        "componentId": "this/fft-ifft"
-                    },
-                    {
-                        "memberId": "eq",
-                        "componentId": "this/audio-equalizer"
-                    }
-                ],
-                "connections": [
-                    {
-                        "connectionId": "sampleIn",
-                        "source": {
-                            "memberIdRef": "input",
-                            "slot": "samples"
-                        },
-                        "destination": {
-                            "memberIdRef": "fft",
-                            "slot": "forwardWindowed"
-                        },
-                        "repeatedValues": true,
-                        "copyValue": false
-                    },
-                    {
-                        "connectionId": "fftIn",
-                        "source": {
-                            "memberIdRef": "fft",
-                            "slot": "resultFromForwardWindowed"
-                        },
-                        "destination": {
-                            "memberIdRef": "eq",
-                            "slot": "input"
-                        },
-                        "repeatedValues": true,
-                        "copyValue": false
-                    },
-                    {
-                        "connectionId": "eqOut",
-                        "source": {
-                            "memberIdRef": "eq",
-                            "slot": "output"
-                        },
-                        "destination": {
-                            "memberIdRef": "fft",
-                            "slot": "inverseWindowed"
-                        },
-                        "repeatedValues": true,
-                        "copyValue": false
-                    },
-                    {
-                        "connectionId": "fftOut",
-                        "source": {
-                            "memberIdRef": "fft",
-                            "slot": "resultFromInverseWindowed"
-                        },
-                        "destination": {
-                            "memberIdRef": "output",
-                            "slot": "samples"
-                        },
-                        "repeatedValues": true,
-                        "copyValue": false
-                    },
-                    {
-                        "connectionId": "states",
-                        "source": {
-                            "memberIdRef": "input",
-                            "slot": "allStates"
-                        },
-                        "destination": {
-                            "memberIdRef": "buttonBar",
-                            "slot": "buttons"
-                        }
-                    },
-                    {
-                        "connectionId": "bassConnect",
-                        "source": {
-                            "memberIdRef": "bassSlider",
-                            "slot": "value"
-                        },
-                        "destination": {
-                            "memberIdRef": "eq",
-                            "slot": "bass"
-                        }
-                    },
-                    {
-                        "connectionId": "middleConnect",
-                        "source": {
-                            "memberIdRef": "middleSlider",
-                            "slot": "value"
-                        },
-                        "destination": {
-                            "memberIdRef": "eq",
-                            "slot": "middle"
-                        }
-                    },
-                    {
-                        "connectionId": "trebleConnect",
-                        "source": {
-                            "memberIdRef": "trebleSlider",
-                            "slot": "value"
-                        },
-                        "destination": {
-                            "memberIdRef": "eq",
-                            "slot": "treble"
-                        }
-                    },
-                    {
-                        "connectionId": "volumeConnect",
-                        "source": {
-                            "memberIdRef": "volumeSlider",
-                            "slot": "value"
-                        },
-                        "destination": {
-                            "memberIdRef": "output",
-                            "slot": "volume"
-                        }
-                    },
-                    {
-                        "connectionId": "stateConnect",
-                        "source": {
-                            "memberIdRef": "buttonBar",
-                            "slot": "pressed"
-                        },
-                        "destination": {
-                            "memberIdRef": "input",
-                            "slot": "state"
-                        }
-                    },
-                    {
-                        "connectionId": "fileSelect",
-                        "source": {
-                            "memberIdRef": "selectFile",
-                            "slot": "url"
-                        },
-                        "destination": {
-                            "memberIdRef": "input",
-                            "slot": "source"
-                        }
-                    },
-                    {
-                        "connectionId": "inputTextFileSelect",
-                        "source": {
-                            "memberIdRef": "selectFile",
-                            "slot": "filename"
-                        },
-                        "destination": {
-                            "memberIdRef": "inputText",
-                            "slot": "value"
-                        }
-                    },
-                    {
-                        "connectionId": "inputTextToSoundInput",
-                        "source": {
-                            "memberIdRef": "inputText",
-                            "slot": "value"
-                        },
-                        "destination": {
-                            "memberIdRef": "input",
-                            "slot": "source"
-                        }
-                    }
-                ],
-                "inits": [
-                    {
-                        "memberIdRef": "bassSlider",
-                        "slot": "label",
-                        "value": "Bass"
-                    },
-                    {
-                        "memberIdRef": "middleSlider",
-                        "slot": "label",
-                        "value": "Middle"
-                    },
-                    {
-                        "memberIdRef": "trebleSlider",
-                        "slot": "label",
-                        "value": "Treble"
-                    },
-                    {
-                        "memberIdRef": "volumeSlider",
-                        "slot": "label",
-                        "value": "Volume"
-                    },
-                    {
-                        "memberIdRef": "bassSlider",
-                        "slot": "value",
-                        "value": 100
-                    },
-                    {
-                        "memberIdRef": "middleSlider",
-                        "slot": "value",
-                        "value": 100
-                    },
-                    {
-                        "memberIdRef": "trebleSlider",
-                        "slot": "value",
-                        "value": 100
-                    },
-                    {
-                        "memberIdRef": "volumeSlider",
-                        "slot": "value",
-                        "value": 100
-                    },
-                    {
-                        "memberIdRef": "inputText",
-                        "slot": "label",
-                        "value": "Input"
-                    },
-                    {
-                        "memberIdRef": "inputText",
-                        "slot": "value",
-                        "value": "https://www.freesound.org/data/previews/2/2684_5150-lq.mp3"
-                    },
-                    {
-                        "memberIdRef": "input",
-                        "slot": "source",
-                        "value": "https://www.freesound.org/data/previews/2/2684_5150-lq.mp3"
-                    }
-                ]
+          },
+          {
+            "connectionId": "bassConnect",
+            "source": {
+              "memberIdRef": "bassSlider",
+              "slot": "value"
             },
-            {
-                "artifactId": "microphone-to-speakers",
-                "description": "forwards microphone input to speakers",
-                "endpoints": [
-                    {
-                        "endpointId": "main",
-                        "resources": [ ],
-                        "dependencies": [
-                            "this/input-microphone/main",
-                            "this/output-speakers/main"
-                        ]
-                    }
-                ],
-                "slots": [
-                ],
-                "members": [
-                    {
-                        "memberId": "input",
-                        "componentId": "this/input-microphone"
-                    },
-                    {
-                        "memberId": "output",
-                        "componentId": "this/output-speakers"
-                    }
-                ],
-                "connections": [
-                    {
-                        "connectionId": "sampleConnect",
-                        "source": {
-                            "memberIdRef": "input",
-                            "slot": "samples"
-                        },
-                        "destination": {
-                            "memberIdRef": "output",
-                            "slot": "samples"
-                        }
-                    }
-                ],
-                "inits": [
-                ]
+            "destination": {
+              "memberIdRef": "eq",
+              "slot": "bass"
             }
+          },
+          {
+            "connectionId": "middleConnect",
+            "source": {
+              "memberIdRef": "middleSlider",
+              "slot": "value"
+            },
+            "destination": {
+              "memberIdRef": "eq",
+              "slot": "middle"
+            }
+          },
+          {
+            "connectionId": "trebleConnect",
+            "source": {
+              "memberIdRef": "trebleSlider",
+              "slot": "value"
+            },
+            "destination": {
+              "memberIdRef": "eq",
+              "slot": "treble"
+            }
+          },
+          {
+            "connectionId": "volumeConnect",
+            "source": {
+              "memberIdRef": "volumeSlider",
+              "slot": "value"
+            },
+            "destination": {
+              "memberIdRef": "output",
+              "slot": "volume"
+            }
+          },
+          {
+            "connectionId": "stateConnect",
+            "source": {
+              "memberIdRef": "buttonBar",
+              "slot": "pressed"
+            },
+            "destination": {
+              "memberIdRef": "input",
+              "slot": "state"
+            }
+          },
+          {
+            "connectionId": "fileSelect",
+            "source": {
+              "memberIdRef": "selectFile",
+              "slot": "url"
+            },
+            "destination": {
+              "memberIdRef": "input",
+              "slot": "source"
+            }
+          },
+          {
+            "connectionId": "inputTextFileSelect",
+            "source": {
+              "memberIdRef": "selectFile",
+              "slot": "filename"
+            },
+            "destination": {
+              "memberIdRef": "inputText",
+              "slot": "value"
+            }
+          },
+          {
+            "connectionId": "inputTextToSoundInput",
+            "source": {
+              "memberIdRef": "inputText",
+              "slot": "value"
+            },
+            "destination": {
+              "memberIdRef": "input",
+              "slot": "source"
+            }
+          }
         ],
-        "utilities": [ ]
-    }
+        "inits": [
+          {
+            "memberIdRef": "bassSlider",
+            "slot": "label",
+            "value": "Bass"
+          },
+          {
+            "memberIdRef": "middleSlider",
+            "slot": "label",
+            "value": "Middle"
+          },
+          {
+            "memberIdRef": "trebleSlider",
+            "slot": "label",
+            "value": "Treble"
+          },
+          {
+            "memberIdRef": "volumeSlider",
+            "slot": "label",
+            "value": "Volume"
+          },
+          {
+            "memberIdRef": "bassSlider",
+            "slot": "value",
+            "value": 100
+          },
+          {
+            "memberIdRef": "middleSlider",
+            "slot": "value",
+            "value": 100
+          },
+          {
+            "memberIdRef": "trebleSlider",
+            "slot": "value",
+            "value": 100
+          },
+          {
+            "memberIdRef": "volumeSlider",
+            "slot": "value",
+            "value": 100
+          },
+          {
+            "memberIdRef": "inputText",
+            "slot": "label",
+            "value": "Input"
+          },
+          {
+            "memberIdRef": "inputText",
+            "slot": "value",
+            "value": "https://www.freesound.org/data/previews/2/2684_5150-lq.mp3"
+          },
+          {
+            "memberIdRef": "input",
+            "slot": "source",
+            "value": "https://www.freesound.org/data/previews/2/2684_5150-lq.mp3"
+          }
+        ],
+        "resources": [
+          "css/audio-player.css",
+          "js/main.js"
+        ],
+        "dependencies": [
+          {
+            "artifactId": "input-audio-file"
+          },
+          {
+            "artifactId": "output-speakers"
+          },
+          {
+            "artifactId": "fft-ifft"
+          },
+          {
+            "artifactId": "audio-equalizer"
+          },
+          {
+            "artifactId": "slider-number"
+          },
+          {
+            "artifactId": "button-bar"
+          },
+          {
+            "artifactId": "input-text"
+          },
+          {
+            "artifactId": "select-file"
+          },
+          {
+            "webpackageId": "bootstrap-3.3.5@1.0.2",
+            "artifactId": "bootstrap",
+            "endpointId": "main"
+          },
+          {
+            "webpackageId": "jquery-2.1.4@1.0.0",
+            "artifactId": "jquery",
+            "endpointId": "main"
+          }
+        ]
+      },
+      {
+        "artifactId": "microphone-to-speakers",
+        "description": "forwards microphone input to speakers",
+        "slots": [],
+        "members": [
+          {
+            "memberId": "input",
+            "artifactId": "input-microphone"
+          },
+          {
+            "memberId": "output",
+            "artifactId": "output-speakers"
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "sampleConnect",
+            "source": {
+              "memberIdRef": "input",
+              "slot": "samples"
+            },
+            "destination": {
+              "memberIdRef": "output",
+              "slot": "samples"
+            }
+          }
+        ],
+        "inits": [],
+        "resources": [],
+        "dependencies": [
+          {
+            "artifactId": "input-microphone"
+          },
+          {
+            "artifactId": "output-speakers"
+          }
+        ]
+      }
+    ],
+    "utilities": []
+  }
 }

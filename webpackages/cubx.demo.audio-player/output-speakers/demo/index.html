@@ -5,40 +5,27 @@
     <meta charset="UTF-8">
     <title>Demo output speakers</title>
 
-    <script src="../../../cubx.core.rte@1.10.0-SNAPSHOT/webcomponents/webcomponents-lite.js"></script>
-
-    <script>
-        window.cubx = {
-            "CRCInit": {
-                "rootDependencies": [
-                    "this/output-speakers/main",
-                ]
-            }
-        }
-    </script>
+    <script src="../../../cubx.core.rte@2.1.0/webcomponents-lite/webcomponents-lite.js"></script>
 
     <!-- include crc-loader webresource from base
         1) Want to add a main script?
         Add the following attribute: data-crc-main="js/main.js"
     -->
 
-    <script src="../../../cubx.core.rte@1.10.0-SNAPSHOT/crc-loader/js/main.js" data-CRCInit.loadCIF="true" data-crc-main="main.js"></script>
+    <script src="../../../cubx.core.rte@2.1.0/crc-loader/js/main.js" data-CRCInit.loadCIF="true" data-crc-main="main.js"></script>
 
 </head>
 <body>
 <h2>IDMT output speakers</h2>
 <p>This component receives audio samples via the <code>samples</code> input slot and plays it back. The processing is in realtime
-    so enough audio data for interruption-free sound should be provided. The input format is <code>Float32Array</code> with a blocksize of 2048 samples, 
+    so enough audio data for interruption-free sound should be provided. The input format is <code>Float32Array</code> with a blocksize of 2048 samples,
     values from -1 to 1 and a sample rate of 44100 Hz. If more samples are handed over then needed the data is buffered.</p>
 <p>Volume can be set with values between 100 (loud) and 0 (silent).</p>
 <p>The example uses an Oscillator for generating sound samples and passes hands them over to the component for playback.</p>
 <hr>
 <p>Frequency (100 - 500Hz): <input id="freqSlider" type="range" min="100" max="500" step="10" /></p>
 <p>Volume (0 - 100): <input id="volumeSlider" type="range" min="0" max="100" step="5" value="100" /></p>
-<!-- The cubixx client-runtime-container is bound to the next div -->
-<div cubx-core-crc>
-    <!-- Change this to your element name ... -->
-    <output-speakers></output-speakers>
-</div>
+
+<output-speakers cubx-webpackage-id="this"></output-speakers>
 </body>
 </html>

@@ -5,37 +5,24 @@
     <meta charset="UTF-8">
     <title>Demo microphone input</title>
 
-    <script src="../../../cubx.core.rte@1.10.0-SNAPSHOT/webcomponents/webcomponents-lite.js"></script>
-
-    <script>
-        window.cubx = {
-            "CRCInit": {
-                "rootDependencies": [
-                    "this/input-microphone/main",
-                ]
-            }
-        }
-    </script>
+    <script src="../../../cubx.core.rte@2.1.0/webcomponents-lite/webcomponents-lite.js"></script>
 
     <!-- include crc-loader webresource from base
         1) Want to add a main script?
         Add the following attribute: data-crc-main="js/main.js"
     -->
 
-    <script src="../../../cubx.core.rte@1.10.0-SNAPSHOT/crc-loader/js/main.js" data-CRCInit.loadCIF="true" data-crc-main="main.js"></script>
+    <script src="../../../cubx.core.rte@2.1.0/crc-loader/js/main.js" data-CRCInit.loadCIF="true" data-crc-main="main.js"></script>
 
 </head>
 <body>
 <h2>IDMT input microphone</h2>
-<p>This component captures audio samples from the current audio input device and sends them over <code>samples</code> output slot. 
+<p>This component captures audio samples from the current audio input device and sends them over <code>samples</code> output slot.
     The format is <code>Float32Array</code> and each block contains 2048 samples with values from -1 to 1 as a sample rate of 44100 Hz. </p>
 <p>The provided example computes and displays the volume for each sample block by taking the mean of the absolute values.</p>
 <p id="testLabel">Volume: 0</p>
 <hr>
 <!-- The cubixx client-runtime-container is bound to the next div -->
-<div cubx-core-crc>
-    <!-- Change this to your element name ... -->
-    <input-microphone></input-microphone>
-</div>
+<input-microphone cubx-webpackage-id="this"></input-microphone>
 </body>
 </html>

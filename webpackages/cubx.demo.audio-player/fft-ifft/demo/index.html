@@ -5,24 +5,14 @@
     <meta charset="UTF-8">
     <title>Demo fft processing</title>
 
-    <script src="../../../cubx.core.rte@1.10.0-SNAPSHOT/webcomponents/webcomponents-lite.js"></script>
-
-    <script>
-        window.cubx = {
-            "CRCInit": {
-                "rootDependencies": [
-                    "this/fft-ifft/main",
-                ]
-            }
-        }
-    </script>
+    <script src="../../../cubx.core.rte@2.1.0/webcomponents-lite/webcomponents-lite.js"></script>
 
     <!-- include crc-loader webresource from base
         1) Want to add a main script?
         Add the following attribute: data-crc-main="js/main.js"
     -->
 
-    <script src="../../../cubx.core.rte@1.10.0-SNAPSHOT/crc-loader/js/main.js" data-CRCInit.loadCIF="true" data-crc-main="main.js"></script>
+    <script src="../../../cubx.core.rte@2.1.0/crc-loader/js/main.js" data-CRCInit.loadCIF="true" data-crc-main="main.js"></script>
 
 </head>
 <body>
@@ -33,9 +23,6 @@
 <p>Sample rate can be changed via slot.</p>
 <hr>
 <!-- The cubixx client-runtime-container is bound to the next div -->
-<div cubx-core-crc>
-    <!-- Change this to your element name ... -->
-    <fft-ifft></fft-ifft>
-</div>
+<fft-ifft cubx-webpackage-id="this"></fft-ifft>
 </body>
 </html>
