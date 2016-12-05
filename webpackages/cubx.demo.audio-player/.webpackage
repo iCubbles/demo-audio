@@ -1,14 +1,14 @@
 {
 "uploadConfigs": {
-    "release": {
-      "url": "https://cubbles.world/bde-test",
-      "proxy": "",
-      "debug": false
-    },
     "local": {
         "url": "http://cubbles-base-local/sandbox",
         "proxy": "",
         "debug": false
+    },
+    "release": {
+      "url": "https://cubbles.world/bde-test",
+      "proxy": "",
+      "debug": false
     }
   }
 }

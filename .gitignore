@@ -23,7 +23,6 @@ pack/
 build/
 www/
 .tmp/
-docs/
 
 public/test-results
 public/test/vendor/*
