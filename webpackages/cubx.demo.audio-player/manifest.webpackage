@@ -24,21 +24,6 @@
     "artifacts": {
         "apps": [
             {
-                "artifactId": "audio-player-app",
-                "description": "This is a simple pre-generated app.",
-                "runnables": [
-                    {
-                        "name": "Audio player app using audio player compound.",
-                        "path": "/index.html",
-                        "description": "Call this app as a simple demo."
-                    }
-                ],
-                "resources": [
-                    "index.html",
-                    "signal_flow.png"
-                ]
-            },
-            {
                 "artifactId": "microphone-to-speakers-demo",
                 "description": "Demos for audio i/o.",
                 "runnables": [
@@ -405,6 +390,11 @@
                         "name": "docs",
                         "path": "/docs/index.html",
                         "description": "Show the interface and dataflow of this component."
+                    },
+                    {
+                        "name": "demo",
+                        "path": "/demo/index.html",
+                        "description": "Demo App of the audio-player."
                     }
                 ],
                 "slots": [],
