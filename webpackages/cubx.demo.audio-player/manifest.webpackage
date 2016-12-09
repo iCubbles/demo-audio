@@ -24,20 +24,6 @@
     "artifacts": {
         "apps": [
             {
-                "artifactId": "microphone-to-speakers-demo",
-                "description": "Demos for audio i/o.",
-                "runnables": [
-                    {
-                        "name": "Demo applications for audio i/o compounds",
-                        "path": "/index.html",
-                        "description": "Call this app as a simple demo."
-                    }
-                ],
-                "resources": [
-                    "index.html"
-                ]
-            },
-            {
                 "artifactId": "docs",
                 "description": "Generated webpackage documentation.",
                 "runnables": [
