@@ -359,147 +359,6 @@
                 ]
             },
             {
-                "artifactId": "button-bar",
-                "description": "button bar with flexible number of buttons",
-                "runnables": [
-                    {
-                        "name": "docs",
-                        "path": "/docs/index.html",
-                        "description": "Show the interface of this component."
-                    }
-                ],
-                "slots": [
-                    {
-                        "slotId": "buttons",
-                        "type": "array",
-                        "direction": [
-                            "input"
-                        ]
-                    },
-                    {
-                        "slotId": "pressed",
-                        "type": "string",
-                        "direction": [
-                            "output"
-                        ]
-                    }
-                ],
-                "resources": [
-                    "button-bar.html"
-                ],
-                "dependencies": [
-                    {
-                        "webpackageId": "cubx.core.rte@2.1.0",
-                        "artifactId": "cubxpolymer"
-                    }
-                ]
-            },
-            {
-                "artifactId": "input-text",
-                "description": "input with i/o slots and label",
-                "runnables": [
-                    {
-                        "name": "docs",
-                        "path": "/docs/index.html",
-                        "description": "Show the interface of this component."
-                    }
-                ],
-                "slots": [
-                    {
-                        "slotId": "value",
-                        "type": "string",
-                        "direction": [
-                            "input",
-                            "output"
-                        ],
-                        "value": ""
-                    },
-                    {
-                        "slotId": "label",
-                        "type": "string",
-                        "direction": [
-                            "input",
-                            "output"
-                        ],
-                        "value": "Label"
-                    }
-                ],
-                "resources": [
-                    "input-text.html"
-                ],
-                "dependencies": [
-                    {
-                        "webpackageId": "cubx.core.rte@2.1.0",
-                        "artifactId": "cubxpolymer"
-                    }
-                ]
-            },
-            {
-                "artifactId": "slider-number",
-                "description": "slider with number input/output slot",
-                "runnables": [
-                    {
-                        "name": "docs",
-                        "path": "/docs/index.html",
-                        "description": "Show the interface of this component."
-                    }
-                ],
-                "slots": [
-                    {
-                        "slotId": "value",
-                        "type": "number",
-                        "direction": [
-                            "input",
-                            "output"
-                        ],
-                        "value": 10
-                    },
-                    {
-                        "slotId": "max",
-                        "type": "number",
-                        "direction": [
-                            "input"
-                        ],
-                        "value": 100
-                    },
-                    {
-                        "slotId": "min",
-                        "type": "number",
-                        "direction": [
-                            "input"
-                        ],
-                        "value": 0
-                    },
-                    {
-                        "slotId": "label",
-                        "type": "string",
-                        "direction": [
-                            "input",
-                            "output"
-                        ],
-                        "value": "Number slider"
-                    },
-                    {
-                        "slotId": "onDrag",
-                        "type": "boolean",
-                        "direction": [
-                            "input"
-                        ],
-                        "value": false,
-                        "description": "indicates whether an updated value should be propagated during drag or only on change (after drop)"
-                    }
-                ],
-                "resources": [
-                    "slider-number.html"
-                ],
-                "dependencies": [
-                    {
-                        "webpackageId": "cubx.core.rte@2.1.0",
-                        "artifactId": "cubxpolymer"
-                    }
-                ]
-            },
-            {
                 "artifactId": "select-file",
                 "description": "select file",
                 "runnables": [
@@ -552,31 +411,39 @@
                 "members": [
                     {
                         "memberId": "inputText",
-                        "artifactId": "input-text"
+                        "artifactId": "cubx-text-input"
+                    },
+                    {
+                        "memberId": "playButton",
+                        "artifactId": "cubx-button"
+                    },
+                    {
+                        "memberId": "pauseButton",
+                        "artifactId": "cubx-button"
+                    },
+                    {
+                        "memberId": "stopButton",
+                        "artifactId": "cubx-button"
                     },
                     {
                         "memberId": "selectFile",
                         "artifactId": "select-file"
                     },
                     {
-                        "memberId": "buttonBar",
-                        "artifactId": "button-bar"
-                    },
-                    {
                         "memberId": "volumeSlider",
-                        "artifactId": "slider-number"
+                        "artifactId": "cubx-number-input"
                     },
                     {
                         "memberId": "bassSlider",
-                        "artifactId": "slider-number"
+                        "artifactId": "cubx-number-input"
                     },
                     {
                         "memberId": "middleSlider",
-                        "artifactId": "slider-number"
+                        "artifactId": "cubx-number-input"
                     },
                     {
                         "memberId": "trebleSlider",
-                        "artifactId": "slider-number"
+                        "artifactId": "cubx-number-input"
                     },
                     {
                         "memberId": "input",
@@ -596,6 +463,45 @@
                     }
                 ],
                 "connections": [
+                    {
+                        "connectionId": "playConnect",
+                        "source": {
+                            "memberIdRef": "playButton",
+                            "slot": "clicked"
+                        },
+                        "destination": {
+                            "memberIdRef": "input",
+                            "slot": "state"
+                        },
+                        "repeatedValues": true,
+                        "hookFunction": "window.cubx_demo_audio_player.playButtonClicked"
+                    },
+                    {
+                        "connectionId": "pauseConnect",
+                        "source": {
+                            "memberIdRef": "pauseButton",
+                            "slot": "clicked"
+                        },
+                        "destination": {
+                            "memberIdRef": "input",
+                            "slot": "state"
+                        },
+                        "repeatedValues": true,
+                        "hookFunction": "window.cubx_demo_audio_player.pauseButtonClicked"
+                    },
+                    {
+                        "connectionId": "stopConnect",
+                        "source": {
+                            "memberIdRef": "stopButton",
+                            "slot": "clicked"
+                        },
+                        "destination": {
+                            "memberIdRef": "input",
+                            "slot": "state"
+                        },
+                        "repeatedValues": true,
+                        "hookFunction": "window.cubx_demo_audio_player.stopButtonClicked"
+                    },
                     {
                         "connectionId": "sampleIn",
                         "source": {
@@ -649,17 +555,6 @@
                         "copyValue": false
                     },
                     {
-                        "connectionId": "states",
-                        "source": {
-                            "memberIdRef": "input",
-                            "slot": "allStates"
-                        },
-                        "destination": {
-                            "memberIdRef": "buttonBar",
-                            "slot": "buttons"
-                        }
-                    },
-                    {
                         "connectionId": "bassConnect",
                         "source": {
                             "memberIdRef": "bassSlider",
@@ -704,17 +599,6 @@
                         }
                     },
                     {
-                        "connectionId": "stateConnect",
-                        "source": {
-                            "memberIdRef": "buttonBar",
-                            "slot": "pressed"
-                        },
-                        "destination": {
-                            "memberIdRef": "input",
-                            "slot": "state"
-                        }
-                    },
-                    {
                         "connectionId": "fileSelect",
                         "source": {
                             "memberIdRef": "selectFile",
@@ -723,17 +607,6 @@
                         "destination": {
                             "memberIdRef": "input",
                             "slot": "source"
-                        }
-                    },
-                    {
-                        "connectionId": "inputTextFileSelect",
-                        "source": {
-                            "memberIdRef": "selectFile",
-                            "slot": "filename"
-                        },
-                        "destination": {
-                            "memberIdRef": "inputText",
-                            "slot": "value"
                         }
                     },
                     {
@@ -750,9 +623,44 @@
                 ],
                 "inits": [
                     {
+                        "memberIdRef": "playButton",
+                        "slot": "text",
+                        "value": "Play"
+                    },
+                    {
+                        "memberIdRef": "pauseButton",
+                        "slot": "text",
+                        "value": "Pause"
+                    },
+                    {
+                        "memberIdRef": "stopButton",
+                        "slot": "text",
+                        "value": "Stop"
+                    },
+                    {
                         "memberIdRef": "bassSlider",
                         "slot": "label",
                         "value": "Bass"
+                    },
+                    {
+                        "memberIdRef": "bassSlider",
+                        "slot": "value",
+                        "value": 100
+                    },
+                    {
+                        "memberIdRef": "bassSlider",
+                        "slot": "subtype",
+                        "value": "range"
+                    },
+                    {
+                        "memberIdRef": "bassSlider",
+                        "slot": "min",
+                        "value": 0
+                    },
+                    {
+                        "memberIdRef": "bassSlider",
+                        "slot": "max",
+                        "value": 100
                     },
                     {
                         "memberIdRef": "middleSlider",
@@ -760,9 +668,49 @@
                         "value": "Middle"
                     },
                     {
+                        "memberIdRef": "middleSlider",
+                        "slot": "value",
+                        "value": 100
+                    },
+                    {
+                        "memberIdRef": "middleSlider",
+                        "slot": "subtype",
+                        "value": "range"
+                    },
+                    {
+                        "memberIdRef": "middleSlider",
+                        "slot": "min",
+                        "value": 0
+                    },
+                    {
+                        "memberIdRef": "middleSlider",
+                        "slot": "max",
+                        "value": 100
+                    },
+                    {
                         "memberIdRef": "trebleSlider",
                         "slot": "label",
                         "value": "Treble"
+                    },
+                    {
+                        "memberIdRef": "trebleSlider",
+                        "slot": "value",
+                        "value": 100
+                    },
+                    {
+                        "memberIdRef": "trebleSlider",
+                        "slot": "subtype",
+                        "value": "range"
+                    },
+                    {
+                        "memberIdRef": "trebleSlider",
+                        "slot": "min",
+                        "value": 0
+                    },
+                    {
+                        "memberIdRef": "trebleSlider",
+                        "slot": "max",
+                        "value": 100
                     },
                     {
                         "memberIdRef": "volumeSlider",
@@ -770,29 +718,29 @@
                         "value": "Volume"
                     },
                     {
-                        "memberIdRef": "bassSlider",
-                        "slot": "value",
-                        "value": 100
-                    },
-                    {
-                        "memberIdRef": "middleSlider",
-                        "slot": "value",
-                        "value": 100
-                    },
-                    {
-                        "memberIdRef": "trebleSlider",
-                        "slot": "value",
-                        "value": 100
-                    },
-                    {
                         "memberIdRef": "volumeSlider",
                         "slot": "value",
                         "value": 100
                     },
                     {
+                        "memberIdRef": "volumeSlider",
+                        "slot": "subtype",
+                        "value": "range"
+                    },
+                    {
+                        "memberIdRef": "volumeSlider",
+                        "slot": "min",
+                        "value": 0
+                    },
+                    {
+                        "memberIdRef": "volumeSlider",
+                        "slot": "max",
+                        "value": 100
+                    },
+                    {
                         "memberIdRef": "inputText",
                         "slot": "label",
-                        "value": "Input"
+                        "value": "By URL"
                     },
                     {
                         "memberIdRef": "inputText",
@@ -807,9 +755,22 @@
                 ],
                 "resources": [
                     "css/audio-player.css",
-                    "js/main.js"
+                    "js/main.js",
+                    "js/hookFunctions.js"
                 ],
                 "dependencies": [
+                    {
+                        "webpackageId": "com.incowia.basic-html-components@1.0",
+                        "artifactId": "cubx-text-input"
+                    },
+                    {
+                        "webpackageId": "com.incowia.basic-html-components@1.0",
+                        "artifactId": "cubx-button"
+                    },
+                    {
+                        "webpackageId": "com.incowia.basic-html-components@1.0",
+                        "artifactId": "cubx-number-input"
+                    },
                     {
                         "artifactId": "input-audio-file"
                     },
@@ -821,15 +782,6 @@
                     },
                     {
                         "artifactId": "audio-equalizer"
-                    },
-                    {
-                        "artifactId": "slider-number"
-                    },
-                    {
-                        "artifactId": "button-bar"
-                    },
-                    {
-                        "artifactId": "input-text"
                     },
                     {
                         "artifactId": "select-file"
