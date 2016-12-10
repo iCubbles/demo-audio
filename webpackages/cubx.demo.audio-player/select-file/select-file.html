@@ -3,11 +3,8 @@
 
     <template>
         <style include="select-file-style"></style>
-        <section>
-            <article>
-                <input type="file" id="fileSelector" on-change="handleFileSelect" accept="audio/*"/>
-            </article>
-        </section>
+        <label for="fileSelector">{{model.label}}</label>
+        <input type="file" id="fileSelector" on-change="handleFileSelect" accept="audio/*"/>
     </template>
 
     <script src="select-file.js"></script>

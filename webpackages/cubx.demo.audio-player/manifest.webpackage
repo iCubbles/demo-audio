@@ -354,6 +354,14 @@
                             "output"
                         ],
                         "value": "Nothing selected"
+                    },
+                    {
+                        "slotId": "label",
+                        "type": "string",
+                        "direction": [
+                            "input"
+                        ],
+                        "value": "Upload"
                     }
                 ],
                 "resources": [

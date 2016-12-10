@@ -38,11 +38,6 @@ button:active {
 	top:1px;
 }
 
-button-bar {
-    margin-left: 40px;
-    margin-bottom: 20px;
-}
-
 label {
     font-size:15px !important;
     color: black !important;
