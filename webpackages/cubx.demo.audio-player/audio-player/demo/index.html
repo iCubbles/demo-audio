@@ -27,9 +27,32 @@
     </ul>
     <h3>Signal chain:</h3>
     <img src="signal_flow.png" class="img-responsive">
-<h3>Compound:</h3>
+    <h3>Compound:</h3>
+    <audio-player cubx-webpackage-id="this"></audio-player>
 </div>
 
-<audio-player cubx-webpackage-id="this"></audio-player>
+<script>
+    document.addEventListener('cifReady', function() {
+        $('audio-player').addClass('row');
+
+        //file inputs
+        $('audio-player').children('[member-id="inputText"], [member-id="selectFile"]').wrapAll("<div class='row vertical-align'></div>");
+        var inputTextFile = $('[member-id="inputText"]');
+        inputTextFile.find('article').children().wrapAll("<div class='row vertical-align'></div>");
+        inputTextFile.find('label').addClass('label');
+
+        //button bar
+        $('cubx-button').addClass('col-md-4');
+
+        //we could also search for all sliders but this way is more stable and could be used in bde
+        $('[member-id="volumeSlider"]').addClass('col-md-3');
+        $('[member-id="bassSlider"]').addClass('col-md-3');
+        $('[member-id="middleSlider"]').addClass('col-md-3');
+        $('[member-id="trebleSlider"]').addClass('col-md-3');
+
+        $('cubx-number-input').find('label').addClass('col-md-1');
+        $('cubx-number-input').find('input').addClass('col-md-11');
+    });
+</script>
 </body>
 </html>

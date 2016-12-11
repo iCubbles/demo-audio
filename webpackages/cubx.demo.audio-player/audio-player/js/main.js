@@ -1,7 +1,6 @@
 'use strict';
 (function() {
     document.addEventListener('cifReady', function() {
-        console.log("ready");
 
         $("head").append('<meta name="viewport" content="width=device-width, initial-scale=1">');
 
